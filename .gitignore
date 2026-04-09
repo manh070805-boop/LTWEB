@@ -1,0 +1,21 @@
+# Git ignore for AdminLTWEB
+.agents/
+.DS_Store
+Thumbs.db
+
+# Exclude git subdirectories in skills
+skills/**/.git/
+
+# PHP related
+vendor/
+composer.lock
+.env
+
+# SQL related
+*.bak
+*.log
+
+# Windows specific
+Desktop.ini
+[Dd]ebug/
+[Rr]elease/
