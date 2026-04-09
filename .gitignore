@@ -1,6 +1,4 @@
 # Git ignore for AdminLTWEB
-skills/
-stitch-skills-main/
 .agents/
 .DS_Store
 Thumbs.db
