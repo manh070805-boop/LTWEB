@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+@using System.Text.Json
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Cổng giảng viên</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/teacher/teacher-layout.css" />
+    <link rel="stylesheet" href="~/css/teacher/teacher.css" />
+    <style>
+        .app-toast-container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 1080;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: min(380px, calc(100vw - 32px));
+        }
+        .app-toast {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
+            border-left: 5px solid #2563eb;
+            color: #0f172a;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+        .app-toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .app-toast-success { border-left-color: #16a34a; }
+        .app-toast-error { border-left-color: #dc2626; }
+        .app-toast-warning { border-left-color: #f59e0b; }
+        .app-toast-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 28px;
+            font-size: .9rem;
+            color: #fff;
+            background: #2563eb;
+        }
+        .app-toast-success .app-toast-icon { background: #16a34a; }
+        .app-toast-error .app-toast-icon { background: #dc2626; }
+        .app-toast-warning .app-toast-icon { background: #f59e0b; }
+        .app-toast-message {
+            flex: 1;
+            line-height: 1.45;
+            font-weight: 600;
+            padding-top: 2px;
+        }
+        .app-toast-close {
+            border: 0;
+            background: transparent;
+            color: #64748b;
+            font-size: 1.1rem;
+            line-height: 1;
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="teacher-shell">
+
+        <aside class="teacher-sidebar">
+            <div class="teacher-brand">
+                <div class="teacher-logo">T</div>
+                <div>
+                    <strong>TMMDEV</strong>
+                    <span>Teacher Portal</span>
+                </div>
+            </div>
+
+            <nav class="teacher-menu">
+                <a asp-controller="Teacher" asp-action="Home"> Bảng điều khiển</a>
+                <a asp-controller="Teacher" asp-action="MyClasses"> Quản lý khóa học</a>
+                <a asp-controller="Teacher" asp-action="Students"> Lớp phụ trách</a>
+                <a asp-controller="Teacher" asp-action="Profile"> Cài đặt hồ sơ</a>
+            </nav>
+
+            <form asp-controller="Account" asp-action="LogoutPost" method="post" class="teacher-logout-form">
+                <button type="submit" class="teacher-logout">
+                    Đăng xuất
+                </button>
+            </form>
+        </aside>
+
+        <main class="teacher-main">
+            <header class="teacher-topbar">
+                <div>
+                    <strong>Cổng giảng viên</strong>
+                    <span>Quản lý lớp học, bài giảng và video học tập</span>
+                </div>
+
+                <div class="teacher-user">
+                    Xin chào, @Context.Session.GetString("FullName")
+                </div>
+            </header>
+
+            <section class="teacher-content">
+                @RenderBody()
+            </section>
+        </main>
+
+    </div>
+
+    <div id="appToastContainer" class="app-toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.showToast = function (message, type = "success", duration = 3500) {
+            if (!message) return;
+
+            const container = document.getElementById("appToastContainer");
+            if (!container) return;
+
+            const toast = document.createElement("div");
+            const normalizedType = ["success", "error", "warning"].includes(type) ? type : "success";
+            const icon = normalizedType === "success" ? "✓" : normalizedType === "warning" ? "!" : "×";
+
+            toast.className = `app-toast app-toast-${normalizedType}`;
+            toast.innerHTML = `
+                <span class="app-toast-icon">${icon}</span>
+                <span class="app-toast-message"></span>
+                <button type="button" class="app-toast-close" aria-label="Đóng">×</button>
+            `;
+
+            toast.querySelector(".app-toast-message").textContent = message;
+            container.appendChild(toast);
+
+            const close = () => {
+                toast.classList.remove("show");
+                setTimeout(() => toast.remove(), 250);
+            };
+
+            toast.querySelector(".app-toast-close").addEventListener("click", close);
+            requestAnimationFrame(() => toast.classList.add("show"));
+            setTimeout(close, duration);
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const successMessage = @Html.Raw(JsonSerializer.Serialize(TempData["Success"]?.ToString()));
+            const errorMessage = @Html.Raw(JsonSerializer.Serialize(TempData["Error"]?.ToString()));
+
+            if (successMessage) showToast(successMessage, "success");
+            if (errorMessage) showToast(errorMessage, "error");
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

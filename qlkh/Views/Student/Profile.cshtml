@@ -1,0 +1,77 @@
+@model qlkh.Models.ViewModels.StudentProfileViewModel
+
+@{
+    ViewData["Title"] = "Hồ sơ cá nhân";
+}
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div>
+                                <h2 class="mb-1">Hồ sơ cá nhân</h2>
+                                <p class="text-muted mb-0">Xem và cập nhật thông tin của bạn</p>
+                            </div>
+                            <span class="badge bg-primary">Student</span>
+                        </div>
+
+                        <form asp-controller="Student" asp-action="UpdateProfile" method="post">
+                            <input type="hidden" asp-for="AccountId" />
+                            <input type="hidden" asp-for="StudentId" />
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Mã học viên</label>
+                                    <input class="form-control" asp-for="StudentId" disabled />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Username</label>
+                                    <input class="form-control" asp-for="Username" />
+                                    <span class="text-danger" asp-validation-for="Username"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Họ tên</label>
+                                    <input class="form-control" asp-for="FullName" />
+                                    <span class="text-danger" asp-validation-for="FullName"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input class="form-control" asp-for="Email" />
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Số điện thoại</label>
+                                    <input class="form-control" asp-for="Phone" />
+                                    <span class="text-danger" asp-validation-for="Phone"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Ngày sinh</label>
+                                    <input class="form-control" asp-for="Birthday" type="date" />
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Địa chỉ</label>
+                                    <input class="form-control" asp-for="Address" />
+                                </div>
+                            </div>
+
+                            <div class="mt-4 text-end">
+                                <button type="submit" class="btn btn-primary px-4">
+                                    Lưu thay đổi
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

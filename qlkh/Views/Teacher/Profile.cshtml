@@ -1,0 +1,77 @@
+@model qlkh.Models.ViewModels.TeacherProfileViewModel
+
+@{
+    Layout = "_TeacherLayout";
+    ViewData["Title"] = "Cài đặt hồ sơ";
+}
+
+<div class="teacher-page">
+
+    <div class="teacher-title-row pro-title">
+        <span class="teacher-kicker">SETTINGS</span>
+        <h1>Cài đặt hồ sơ</h1>
+        <p>Cập nhật thông tin cá nhân và chuyên môn giảng viên.</p>
+    </div>
+
+    <div class="profile-grid">
+        <div class="profile-card">
+            <div class="profile-avatar">GV</div>
+            <h3>@Model.FullName</h3>
+            <p>@Model.Specialization</p>
+            <span>@Model.TeacherId</span>
+        </div>
+
+        <div class="lesson-form-card">
+            <h4>Thông tin giảng viên</h4>
+
+            <form asp-controller="Teacher" asp-action="UpdateProfile" method="post">
+                <input type="hidden" asp-for="TeacherId" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Họ tên</label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Username</label>
+                        <input asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Số điện thoại</label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="form-label">Chuyên môn</label>
+                        <input asp-for="Specialization" class="form-control" />
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="form-label">Giới thiệu</label>
+                        <textarea asp-for="Bio" class="form-control" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary rounded-pill px-4 mt-4">
+                    Lưu thay đổi
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

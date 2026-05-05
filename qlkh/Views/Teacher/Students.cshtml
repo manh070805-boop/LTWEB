@@ -1,0 +1,66 @@
+@model List<qlkh.Models.Enrollment>
+
+@{
+    Layout = "_TeacherLayout";
+    ViewData["Title"] = "Lớp phụ trách";
+}
+
+<div class="teacher-page">
+
+    <div class="teacher-title-row pro-title">
+        <span class="teacher-kicker">MY STUDENTS</span>
+        <h1>Lớp phụ trách</h1>
+        <p>Theo dõi học viên trong các lớp bạn đang giảng dạy.</p>
+    </div>
+
+    <div class="lesson-list-card">
+        <h4>Danh sách học viên</h4>
+
+        @if (Model == null || !Model.Any())
+        {
+            <div class="teacher-empty mt-3">
+                <h5>Chưa có học viên nào</h5>
+                <p>Admin chưa gán học viên vào lớp của bạn.</p>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table align-middle teacher-table">
+                    <thead>
+                        <tr>
+                            <th>Học viên</th>
+                            <th>Email</th>
+                            <th>Lớp</th>
+                            <th>Khóa học</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày đăng ký</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <strong>@item.Student?.Account?.FullName</strong>
+                                    <div class="text-muted">@item.StudentId</div>
+                                </td>
+                                <td>@item.Student?.Account?.Email</td>
+                                <td>@item.ClassId</td>
+                                <td>@item.Course?.CourseName</td>
+                                <td>
+                                    <span class="class-status">
+                                        @item.EnrollmentStatus?.StatusName
+                                    </span>
+                                </td>
+                                <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+
+</div>

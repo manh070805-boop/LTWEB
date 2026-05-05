@@ -1,0 +1,129 @@
+@model qlkh.Models.ViewModels.LearnViewModel
+
+@{
+    ViewData["Title"] = "Vào học";
+
+    string ConvertToEmbedUrl(string? url)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+            return "";
+
+        url = url.Trim();
+
+        if (url.Contains("youtube.com/embed/"))
+            return url;
+
+        if (url.Contains("youtube.com/watch?v="))
+        {
+            var videoId = url.Split("watch?v=").Last().Split("&")[0];
+            return "https://www.youtube.com/embed/" + videoId;
+        }
+
+        if (url.Contains("youtu.be/"))
+        {
+            var videoId = url.Split("youtu.be/").Last().Split("?")[0];
+            return "https://www.youtube.com/embed/" + videoId;
+        }
+
+        return url;
+    }
+
+    var courseName = Model.Enrollment.Course?.CourseName ?? "Khóa học";
+    var currentLesson = Model.CurrentLesson;
+    var embedUrl = ConvertToEmbedUrl(currentLesson?.VideoUrl);
+}
+
+<div class="learn-page">
+    <div class="container-fluid">
+
+        <div class="learn-header">
+            <div>
+                <a asp-controller="Student"
+                   asp-action="MyCourses"
+                   class="btn btn-outline-light rounded-pill mb-3">
+                    ← Khóa học của tôi
+                </a>
+
+                <h1>@courseName</h1>
+                <p>Học qua video bài giảng, xem theo thứ tự từ trên xuống dưới.</p>
+            </div>
+        </div>
+
+        @if (Model.Lessons == null || !Model.Lessons.Any())
+        {
+            <div class="empty-learn-box">
+                <h4>Chưa có bài học nào</h4>
+                <p>Giảng viên chưa cập nhật video bài giảng cho lớp này.</p>
+            </div>
+        }
+        else
+        {
+            <div class="learn-layout">
+
+                <aside class="lesson-sidebar">
+                    <div class="lesson-sidebar-title">
+                        Danh sách bài học
+                    </div>
+
+                    @foreach (var lesson in Model.Lessons)
+                    {
+                        var activeClass = currentLesson != null && lesson.LessonId == currentLesson.LessonId
+                            ? "active"
+                            : "";
+
+                        <a asp-controller="Student"
+                           asp-action="Learn"
+                           asp-route-enrollmentId="@Model.Enrollment.EnrollmentId"
+                           asp-route-lessonId="@lesson.LessonId"
+                           class="lesson-item @activeClass">
+
+                            <span class="lesson-order">
+                                @lesson.OrderIndex
+                            </span>
+
+                            <span class="lesson-name">
+                                @lesson.Title
+                            </span>
+                        </a>
+                    }
+                </aside>
+
+                <main class="video-area">
+                    @if (currentLesson == null)
+                    {
+                        <div class="empty-video">
+                            <h4>Chọn bài học để bắt đầu</h4>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="video-card">
+                            <div class="video-title">
+                                <span>Bài @currentLesson.OrderIndex</span>
+                                <h2>@currentLesson.Title</h2>
+                            </div>
+
+                            @if (string.IsNullOrWhiteSpace(embedUrl))
+                            {
+                                <div class="empty-video">
+                                    Video bài học chưa được cập nhật.
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="ratio ratio-16x9 video-frame">
+                                    <iframe src="@embedUrl"
+                                            title="@currentLesson.Title"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen>
+                                    </iframe>
+                                </div>
+                            }
+                        </div>
+                    }
+                </main>
+
+            </div>
+        }
+    </div>
+</div>

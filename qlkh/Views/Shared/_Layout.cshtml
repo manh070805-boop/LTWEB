@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+@using System.Text.Json
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DevAcademy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/student/my-courses.css" />
+    <link rel="stylesheet" href="~/css/student/learn.css" />
+    
+    <style>
+        :root { --primary: #2563eb; --dark: #0f172a; --light: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background-color: #fff; color: var(--dark); }
+        .navbar { border-bottom: 1px solid #e2e8f0; background: #fff; }
+        .btn-primary { background-color: var(--primary); border: none; padding: 0.6rem 1.5rem; border-radius: 8px; }
+        .footer { background: var(--dark); color: #fff; padding: 4rem 0 2rem; }
+        .app-toast-container {
+            position: fixed;
+            top: 96px;
+            right: 24px;
+            z-index: 1080;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: min(380px, calc(100vw - 32px));
+        }
+        .app-toast {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
+            border-left: 5px solid var(--primary);
+            color: #0f172a;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+        .app-toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .app-toast-success { border-left-color: #16a34a; }
+        .app-toast-error { border-left-color: #dc2626; }
+        .app-toast-warning { border-left-color: #f59e0b; }
+        .app-toast-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 28px;
+            font-size: .9rem;
+            color: #fff;
+            background: var(--primary);
+        }
+        .app-toast-success .app-toast-icon { background: #16a34a; }
+        .app-toast-error .app-toast-icon { background: #dc2626; }
+        .app-toast-warning .app-toast-icon { background: #f59e0b; }
+        .app-toast-message {
+            flex: 1;
+            line-height: 1.45;
+            font-weight: 600;
+            padding-top: 2px;
+        }
+        .app-toast-close {
+            border: 0;
+            background: transparent;
+            color: #64748b;
+            font-size: 1.1rem;
+            line-height: 1;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+@using Microsoft.AspNetCore.Http
+@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    var isAuthPage = controller == "Account";
+
+    var fullName = Context.Session.GetString("FullName");
+    var roleId = Context.Session.GetInt32("RoleId");
+}
+
+@if (!isAuthPage)
+{
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-3" asp-controller="Home" asp-action="Index">
+                TMMDEV
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav me-auto ms-4">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" asp-controller="Course" asp-action="Index">Khóa học</a>
+                    </li>
+
+                    @if (roleId == 3)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" asp-controller="Student" asp-action="Profile">Hồ sơ cá nhân</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" asp-controller="Student" asp-action="MyCourses">Khóa học của tôi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" asp-controller="Student" asp-action="MySchedule">Lịch học của tôi</a>
+                        </li>
+                    }
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    @if (string.IsNullOrEmpty(fullName))
+                    {
+                        <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+                        <a class="btn btn-primary" asp-controller="Account" asp-action="Register">Đăng ký</a>
+                    }
+                    else
+                    {
+                        <span class="fw-semibold text-dark">Xin chào, @fullName</span>
+                        <a class="btn btn-danger" asp-controller="Account" asp-action="Logout">Đăng xuất</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+}
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    @if (!isAuthPage)
+    {
+        <footer class="footer mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-primary mb-4">TMMDEV</h5>
+                        <p class="text-secondary">Nền tảng đào tạo lập trình thực chiến, giúp bạn từ con số 0 đến khi có việc làm.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-primary mb-4">Khóa học</h5>
+                        <ul class="list-unstyled text-secondary">
+                            <li><a href="#" class="text-decoration-none text-secondary">ASP.NET MVC</a></li>
+                            <li><a href="#" class="text-decoration-none text-secondary">C# Advanced</a></li>
+                            <li><a href="#" class="text-decoration-none text-secondary">Python</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-primary mb-4">Liên hệ</h5>
+                        <ul class="list-unstyled text-secondary">
+                            <li><a href="mailto:info@devacademy.com" class="text-decoration-none text-secondary">info@devacademy.com</a></li>
+                            <li><a href="#" class="text-decoration-none text-secondary">Facebook</a></li>
+                            <li><a href="#" class="text-decoration-none text-secondary">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="mt-5 border-secondary">
+                <p class="text-center text-secondary mb-0">&copy; @DateTime.Now.Year DevAcademy - Thân Nguyễn</p>
+            </div>
+        </footer>
+    }
+
+    <div id="appToastContainer" class="app-toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.showToast = function (message, type = "success", duration = 3500) {
+            if (!message) return;
+
+            const container = document.getElementById("appToastContainer");
+            if (!container) return;
+
+            const toast = document.createElement("div");
+            const normalizedType = ["success", "error", "warning"].includes(type) ? type : "success";
+            const icon = normalizedType === "success" ? "✓" : normalizedType === "warning" ? "!" : "×";
+
+            toast.className = `app-toast app-toast-${normalizedType}`;
+            toast.innerHTML = `
+                <span class="app-toast-icon">${icon}</span>
+                <span class="app-toast-message"></span>
+                <button type="button" class="app-toast-close" aria-label="Đóng">×</button>
+            `;
+
+            toast.querySelector(".app-toast-message").textContent = message;
+            container.appendChild(toast);
+
+            const close = () => {
+                toast.classList.remove("show");
+                setTimeout(() => toast.remove(), 250);
+            };
+
+            toast.querySelector(".app-toast-close").addEventListener("click", close);
+            requestAnimationFrame(() => toast.classList.add("show"));
+            setTimeout(close, duration);
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const successMessage = @Html.Raw(JsonSerializer.Serialize(TempData["Success"]?.ToString()));
+            const errorMessage = @Html.Raw(JsonSerializer.Serialize(TempData["Error"]?.ToString()));
+
+            if (successMessage) showToast(successMessage, "success");
+            if (errorMessage) showToast(errorMessage, "error");
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

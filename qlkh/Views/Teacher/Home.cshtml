@@ -1,0 +1,89 @@
+@model List<qlkh.Models.CenterClass>
+
+@{
+    Layout = "_TeacherLayout";
+    ViewData["Title"] = "Bảng điều khiển";
+
+    decimal income = ViewBag.Income == null ? 0 : Convert.ToDecimal(ViewBag.Income);
+}
+
+<div class="teacher-page">
+
+    <div class="teacher-hero pro-hero">
+        <div>
+            <span class="teacher-kicker">TEACHER DASHBOARD</span>
+            <h1>Xin chào, @ViewBag.TeacherName 👋</h1>
+            <p>Quản lý lớp học, cập nhật video bài giảng và theo dõi học viên trong một nơi duy nhất.</p>
+        </div>
+        <div class="hero-orb">🎓</div>
+    </div>
+
+    <div class="teacher-stat-grid">
+        <div class="pro-stat-card blue">
+            <div class="stat-icon">📚</div>
+            <span>Lớp phụ trách</span>
+            <strong>@ViewBag.ClassCount</strong>
+        </div>
+
+        <div class="pro-stat-card violet">
+            <div class="stat-icon">🎬</div>
+            <span>Video bài học</span>
+            <strong>@ViewBag.LessonCount</strong>
+        </div>
+
+        <div class="pro-stat-card green">
+            <div class="stat-icon">👨‍🎓</div>
+            <span>Học viên</span>
+            <strong>@ViewBag.StudentCount</strong>
+        </div>
+    </div>
+
+    <div class="teacher-dashboard-grid">
+        <div class="teacher-panel">
+            <div class="panel-title">
+                <div>
+                    <h3>Lớp học gần đây</h3>
+                    <p>Các lớp bạn đang phụ trách</p>
+                </div>
+
+                <a asp-controller="Teacher"
+                   asp-action="MyClasses"
+                   class="btn btn-primary rounded-pill">
+                    Xem tất cả
+                </a>
+            </div>
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="empty-mini">Chưa có lớp nào.</div>
+            }
+            else
+            {
+                <div class="mini-class-list">
+                    @foreach (var item in Model)
+                    {
+                        <a asp-controller="Teacher"
+                           asp-action="Lessons"
+                           asp-route-classId="@item.ClassId"
+                           class="mini-class-item">
+                            <div class="mini-class-icon">📘</div>
+                            <div>
+                                <strong>@item.ClassName</strong>
+                                <span>@item.Course?.CourseName</span>
+                            </div>
+                            <em>@item.Status?.StatusName</em>
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="teacher-panel teacher-tips">
+            <h3>Gợi ý hôm nay</h3>
+            <div class="tip-card">✨ Cập nhật video bài học thường xuyên giúp học viên học tốt hơn.</div>
+            <div class="tip-card">📌 Nên đặt thứ tự bài học rõ ràng: 1, 2, 3...</div>
+            <div class="tip-card">🎯 Kiểm tra lớp phụ trách để theo dõi học viên.</div>
+        </div>
+    </div>
+
+</div>

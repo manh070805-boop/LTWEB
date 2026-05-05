@@ -1,0 +1,210 @@
+@model List<qlkh.Models.Course>
+
+@{
+    ViewData["Title"] = "Tất cả khóa học - QLKH";
+}
+
+<link rel="stylesheet" href="~/css/course-catalog.css" />
+
+<!-- HEADER BANNER -->
+<section class="course-header">
+    <div class="container">
+        <div class="course-header-content">
+            <h1>Thư viện khóa học lập trình</h1>
+            <p>Khám phá hơn 50+ khóa học từ cơ bản đến nâng cao, được giảng dạy bởi các chuyên gia hàng đầu ngành</p>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN CATALOG -->
+<section class="course-catalog-container">
+    <div class="container">
+        <div class="course-catalog-content">
+            <!-- SIDEBAR FILTERS -->
+            <aside class="course-sidebar">
+                <!-- Search -->
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Tìm khóa học..." onkeyup="filterCourses()">
+                </div>
+
+                <!-- Filter: Danh mục -->
+                <div class="filter-group">
+                    <div class="filter-title">📚 Danh mục</div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-frontend" onchange="filterCourses()">
+                        <label for="cat-frontend">Frontend</label>
+                        <span class="filter-count">(12)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-backend" onchange="filterCourses()">
+                        <label for="cat-backend">Backend</label>
+                        <span class="filter-count">(15)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-database" onchange="filterCourses()">
+                        <label for="cat-database">Database</label>
+                        <span class="filter-count">(8)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-mobile" onchange="filterCourses()">
+                        <label for="cat-mobile">Mobile</label>
+                        <span class="filter-count">(10)</span>
+                    </div>
+                </div>
+
+                <!-- Filter: Trình độ -->
+                <div class="filter-group">
+                    <div class="filter-title">📊 Trình độ</div>
+                    <div class="filter-option">
+                        <input type="radio" name="level" id="level-beginner" value="beginner" onchange="filterCourses()">
+                        <label for="level-beginner">Cơ bản</label>
+                        <span class="filter-count">(20)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="level" id="level-intermediate" value="intermediate" onchange="filterCourses()">
+                        <label for="level-intermediate">Nâng cao</label>
+                        <span class="filter-count">(18)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="level" id="level-advanced" value="advanced" onchange="filterCourses()">
+                        <label for="level-advanced">Chuyên gia</label>
+                        <span class="filter-count">(12)</span>
+                    </div>
+                </div>
+
+                <!-- Filter: Giá tiền -->
+                <div class="filter-group">
+                    <div class="filter-title">💰 Giá tiền</div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="price-free" onchange="filterCourses()">
+                        <label for="price-free">Miễn phí</label>
+                        <span class="filter-count">(5)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="price-paid" onchange="filterCourses()">
+                        <label for="price-paid">Trả phí</label>
+                        <span class="filter-count">(45)</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- COURSE GRID -->
+            <div class="course-main">
+                @if (Model != null && Model.Any())
+                {
+                    <div class="course-grid">
+                        @foreach (var course in Model)
+                        {
+                            <div class="course-card" data-course-id="@course.CourseId">
+                                <!-- Image -->
+                                <div class="course-card-image">
+                                    @if (!string.IsNullOrWhiteSpace(course.ImageUrl))
+                                    {
+                                        <img src="@course.ImageUrl" alt="@course.CourseName" style="width: 100%; height: 100%; object-fit: cover;">
+                                    }
+                                    else
+                                    {
+                                        <span>&lt;/&gt;</span>
+                                    }
+                                    <span class="course-badge">
+                                        @if (course.Price == 0)
+                                        {
+                                            <text>Miễn phí</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Trả phí</text>
+                                        }
+                                    </span>
+                                </div>
+
+                                <!-- Content -->
+                                <div class="course-card-body">
+                                    <div class="course-meta">
+                                        <span class="course-meta-tag">
+                                            @(course.LevelId == 1 ? "Cơ bản" : course.LevelId == 2 ? "Nâng cao" : "Chuyên gia")
+                                        </span>
+                                        <span class="course-meta-tag">
+                                            @(course.DurationMonths.HasValue ? $"{course.DurationMonths} tháng" : "Không giới hạn")
+                                        </span>
+                                    </div>
+
+                                    <h3 class="course-title">@course.CourseName</h3>
+
+                                    <p class="course-description">
+                                        @if (string.IsNullOrWhiteSpace(course.Description))
+                                        {
+                                            <text>Khóa học lập trình chất lượng cao với lộ trình học rõ ràng và dễ áp dụng.</text>
+                                        }
+                                        else if (course.Description.Length > 100)
+                                        {
+                                            @($"{course.Description.Substring(0, 100)}...")
+                                        }
+                                        else
+                                        {
+                                            @course.Description
+                                        }
+                                    </p>
+
+                                    <div class="course-price">
+                                        @if (course.Price > 0)
+                                        {
+                                            @course.Price.ToString("N0") <span style="font-size: 0.8rem; color: var(--text-muted);">VND</span>
+                                        }
+                                        else
+                                        {
+                                            <text>Miễn phí</text>
+                                        }
+                                    </div>
+
+                                    <a asp-controller="Course" 
+                                       asp-action="Details" 
+                                       asp-route-id="@course.CourseId"
+                                       class="course-button">
+                                        Xem chi tiết →
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <div class="pagination-section">
+                        <button class="pagination-btn">← Trước</button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">4</button>
+                        <button class="pagination-btn">Tiếp →</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="empty-state">
+                        <h3>Chưa có khóa học nào</h3>
+                        <p>Hệ thống hiện tại chưa có dữ liệu khóa học để hiển thị. Vui lòng quay lại sau.</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function filterCourses() {
+        const searchValue = document.getElementById('searchInput').value.toLowerCase();
+        const courses = document.querySelectorAll('.course-card');
+        
+        courses.forEach(course => {
+            const title = course.querySelector('.course-title')?.textContent.toLowerCase() || '';
+            const description = course.querySelector('.course-description')?.textContent.toLowerCase() || '';
+            
+            if (title.includes(searchValue) || description.includes(searchValue)) {
+                course.style.display = 'flex';
+            } else {
+                course.style.display = 'none';
+            }
+        });
+    }
+</script>

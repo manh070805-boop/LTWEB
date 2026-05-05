@@ -1,0 +1,61 @@
+@model List<qlkh.Models.CenterClass>
+
+@{
+    Layout = "_TeacherLayout";
+    ViewData["Title"] = "Quản lý khóa học";
+}
+
+<div class="teacher-page">
+
+    <div class="teacher-title-row pro-title">
+        <span class="teacher-kicker">COURSE MANAGEMENT</span>
+        <h1>Quản lý khóa học</h1>
+        <p>Các lớp học bạn đang phụ trách và kho video bài giảng của từng lớp.</p>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="teacher-empty">
+            <h4>Bạn chưa được phân công lớp nào</h4>
+            <p>Vui lòng liên hệ admin để được gán lớp.</p>
+        </div>
+    }
+    else
+    {
+        <div class="teacher-class-grid">
+            @foreach (var item in Model)
+            {
+                var courseName = item.Course?.CourseName ?? "Khóa học";
+                var statusName = item.Status?.StatusName ?? "Đang xử lý";
+
+                <div class="pro-class-card">
+                    <div class="class-top">
+                        <span class="class-badge">@item.ClassId</span>
+                        <span class="class-status">@statusName</span>
+                    </div>
+
+                    <h3>@item.ClassName</h3>
+
+                    <div class="class-info">
+                        <p>📘 <strong>Khóa học:</strong> @courseName</p>
+                        <p>🏫 <strong>Phòng:</strong> @(item.RoomName ?? "Online")</p>
+                        <p>
+                            📅 <strong>Thời gian:</strong>
+                            @(item.StartDate?.ToString("dd/MM/yyyy") ?? "Chưa có")
+                            -
+                            @(item.EndDate?.ToString("dd/MM/yyyy") ?? "Đang mở")
+                        </p>
+                    </div>
+
+                    <a asp-controller="Teacher"
+                       asp-action="Lessons"
+                       asp-route-classId="@item.ClassId"
+                       class="btn btn-primary w-100 rounded-pill mt-3">
+                        🎬 Quản lý bài học
+                    </a>
+                </div>
+            }
+        </div>
+    }
+
+</div>

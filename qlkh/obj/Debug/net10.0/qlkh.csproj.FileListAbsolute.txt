@@ -1,0 +1,630 @@
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\appsettings.Development.json
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\appsettings.json
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\qlkh.staticwebassets.runtime.json
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\qlkh.staticwebassets.endpoints.json
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\qlkh.exe
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\qlkh.deps.json
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\qlkh.runtimeconfig.json
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\qlkh.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\qlkh.pdb
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Azure.Core.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Azure.Identity.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Humanizer.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.ClientModel.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.CodeDom.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Memory.Data.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb\qlkh\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.csproj.AssemblyReference.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.GeneratedMSBuildEditorConfig.editorconfig
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.AssemblyInfoInputs.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.AssemblyInfo.cs
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.csproj.CoreCompileInputs.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.MvcApplicationPartsAssemblyInfo.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.RazorAssemblyInfo.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.RazorAssemblyInfo.cs
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\scopedcss\bundle\qlkh.styles.css
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\scopedcss\projectbundle\qlkh.bundle.scp.css
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\x9872kpcbc-{0}-61n19gt1b8-61n19gt1b8.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\2tebt6k7mj-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\lbfqylwhmg-{0}-bqjiyaj88i-bqjiyaj88i.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\66upuz5g7j-{0}-c2jlpeoesf-c2jlpeoesf.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\w0fqd5tubg-{0}-erw9l3u2r3-erw9l3u2r3.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\cqxi867p0a-{0}-aexeepp0ev-aexeepp0ev.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\wp2ct2wpz7-{0}-d7shbmvgxk-d7shbmvgxk.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\v35qkorprt-{0}-ausgxo2sd3-ausgxo2sd3.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\axexrdx30n-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\29io5jeflx-{0}-cosvhxvwiu-cosvhxvwiu.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\jnyu5e8w9y-{0}-ub07r2b239-ub07r2b239.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\ca7uifi4it-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\qxkesduw32-{0}-b7pk76d08c-b7pk76d08c.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\hw07os16b0-{0}-fsbi9cje9m-fsbi9cje9m.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\aft4zctyak-{0}-rzd6atqjts-rzd6atqjts.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\qlz9654gj8-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\3jin81ou9d-{0}-dxx9fxp4il-dxx9fxp4il.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\a47ba3mnyz-{0}-jd9uben2k1-jd9uben2k1.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\6eaamiklnb-{0}-khv3u5hwcm-khv3u5hwcm.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\13xxeibojf-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\4lefvnsu0k-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\w0wn8rtrkh-{0}-c2oey78nd0-c2oey78nd0.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\tagd6fmbpv-{0}-tdbxkamptv-tdbxkamptv.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\217f2au11x-{0}-j5mq2jizvt-j5mq2jizvt.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\4tgldi180w-{0}-06098lyss8-06098lyss8.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\99nk8td9a6-{0}-nvvlpmu67g-nvvlpmu67g.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\l4rj3ldtl0-{0}-s35ty4nyc5-s35ty4nyc5.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\2fkwj7g7n6-{0}-pj5nd1wqec-pj5nd1wqec.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\gx1g5n9plb-{0}-46ein0sx1k-46ein0sx1k.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\u8osmfddhg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\g3dmxkrcg1-{0}-37tfw0ft22-37tfw0ft22.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\oad7xod7b0-{0}-hrwsygsryq-hrwsygsryq.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\j0jcylmkkw-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\p412m2z0c6-{0}-ft3s53vfgj-ft3s53vfgj.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\oc54g5pd78-{0}-6cfz1n2cew-6cfz1n2cew.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\4xnmgukrbu-{0}-6pdc2jztkx-6pdc2jztkx.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\d97g16cajm-{0}-493y06b0oq-493y06b0oq.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\h7yvbqqxzj-{0}-iovd86k7lj-iovd86k7lj.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\s1scbgm5on-{0}-vr1egmr9el-vr1egmr9el.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\zh28bb37nn-{0}-kbrnm935zg-kbrnm935zg.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\twowmwiqja-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\yeztmvic09-{0}-y7v9cxd14o-y7v9cxd14o.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\f0ewpvo11z-{0}-notf2xhcfb-notf2xhcfb.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\sj0is5akcs-{0}-h1s4sie4z3-h1s4sie4z3.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\wuu061wxqz-{0}-63fj8s7r0e-63fj8s7r0e.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\aj26swcpub-{0}-0j3bgjxly4-0j3bgjxly4.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\5r5tj7pknz-{0}-47otxtyo56-47otxtyo56.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\l4ep8957td-{0}-4v8eqarkd7-4v8eqarkd7.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\ji941jxj3r-{0}-356vix0kms-356vix0kms.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\ig9co80dmd-{0}-83jwlth58m-83jwlth58m.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\r2i5uan7i0-{0}-mrlpezrjn3-mrlpezrjn3.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\kpn6f87erw-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\zzerkm4i24-{0}-ag7o75518u-ag7o75518u.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\52c79w7ouf-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\sureeb1phj-{0}-0i3buxo5is-0i3buxo5is.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\dr9fwsro3y-{0}-o1o13a6vjx-o1o13a6vjx.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\f267hxi09i-{0}-ttgo8qnofa-ttgo8qnofa.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\y9ftto1ihy-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\uhl8s7ntq4-{0}-muycvpuwrr-muycvpuwrr.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\6h060jofbj-{0}-87fc7y1x7t-87fc7y1x7t.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\qvcaie3emz-{0}-mlv21k5csn-mlv21k5csn.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\bt811uivuv-{0}-c8cghzmz1f-c8cghzmz1f.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\xkwap4ugq9-{0}-c8cghzmz1f-c8cghzmz1f.gz
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\staticwebassets.build.json
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\staticwebassets.development.json
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\swae.build.ex.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.csproj.Up2Date
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.dll
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\refint\qlkh.dll
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.pdb
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\qlkh.genruntimeconfig.cache
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\ref\qlkh.dll
+D:\DoAnWeb\qlkh\obj\Debug\net10.0\compressed\0krdzlyiix-{0}-5jexz9xwaf-5jexz9xwaf.gz
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\appsettings.Development.json
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\appsettings.json
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\qlkh.staticwebassets.runtime.json
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\qlkh.staticwebassets.endpoints.json
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\qlkh.exe
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\qlkh.deps.json
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\qlkh.runtimeconfig.json
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\qlkh.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\qlkh.pdb
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Azure.Core.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Azure.Identity.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Humanizer.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.ClientModel.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.CodeDom.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Memory.Data.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb - v2\qlkh\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.csproj.AssemblyReference.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.GeneratedMSBuildEditorConfig.editorconfig
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.AssemblyInfoInputs.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.AssemblyInfo.cs
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.csproj.CoreCompileInputs.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.MvcApplicationPartsAssemblyInfo.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.RazorAssemblyInfo.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.RazorAssemblyInfo.cs
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\scopedcss\bundle\qlkh.styles.css
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\scopedcss\projectbundle\qlkh.bundle.scp.css
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\bt811uivuv-{0}-c8cghzmz1f-c8cghzmz1f.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\xkwap4ugq9-{0}-c8cghzmz1f-c8cghzmz1f.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\staticwebassets.build.json
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\staticwebassets.development.json
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\swae.build.ex.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.csproj.Up2Date
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.dll
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\refint\qlkh.dll
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.pdb
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\qlkh.genruntimeconfig.cache
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\ref\qlkh.dll
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\4qbscxkcqy-{0}-luyko89014-luyko89014.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\0krdzlyiix-{0}-5ipweew5fc-5ipweew5fc.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\x9872kpcbc-{0}-61n19gt1b8-61n19gt1b8.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\2tebt6k7mj-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\lbfqylwhmg-{0}-bqjiyaj88i-bqjiyaj88i.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\66upuz5g7j-{0}-c2jlpeoesf-c2jlpeoesf.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\w0fqd5tubg-{0}-erw9l3u2r3-erw9l3u2r3.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\cqxi867p0a-{0}-aexeepp0ev-aexeepp0ev.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\wp2ct2wpz7-{0}-d7shbmvgxk-d7shbmvgxk.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\v35qkorprt-{0}-ausgxo2sd3-ausgxo2sd3.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\axexrdx30n-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\29io5jeflx-{0}-cosvhxvwiu-cosvhxvwiu.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\jnyu5e8w9y-{0}-ub07r2b239-ub07r2b239.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\ca7uifi4it-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\qxkesduw32-{0}-b7pk76d08c-b7pk76d08c.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\hw07os16b0-{0}-fsbi9cje9m-fsbi9cje9m.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\aft4zctyak-{0}-rzd6atqjts-rzd6atqjts.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\qlz9654gj8-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\3jin81ou9d-{0}-dxx9fxp4il-dxx9fxp4il.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\a47ba3mnyz-{0}-jd9uben2k1-jd9uben2k1.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\6eaamiklnb-{0}-khv3u5hwcm-khv3u5hwcm.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\13xxeibojf-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\4lefvnsu0k-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\w0wn8rtrkh-{0}-c2oey78nd0-c2oey78nd0.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\tagd6fmbpv-{0}-tdbxkamptv-tdbxkamptv.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\217f2au11x-{0}-j5mq2jizvt-j5mq2jizvt.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\4tgldi180w-{0}-06098lyss8-06098lyss8.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\99nk8td9a6-{0}-nvvlpmu67g-nvvlpmu67g.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\l4rj3ldtl0-{0}-s35ty4nyc5-s35ty4nyc5.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\2fkwj7g7n6-{0}-pj5nd1wqec-pj5nd1wqec.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\gx1g5n9plb-{0}-46ein0sx1k-46ein0sx1k.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\u8osmfddhg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\g3dmxkrcg1-{0}-37tfw0ft22-37tfw0ft22.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\oad7xod7b0-{0}-hrwsygsryq-hrwsygsryq.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\j0jcylmkkw-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\p412m2z0c6-{0}-ft3s53vfgj-ft3s53vfgj.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\oc54g5pd78-{0}-6cfz1n2cew-6cfz1n2cew.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\4xnmgukrbu-{0}-6pdc2jztkx-6pdc2jztkx.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\d97g16cajm-{0}-493y06b0oq-493y06b0oq.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\h7yvbqqxzj-{0}-iovd86k7lj-iovd86k7lj.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\s1scbgm5on-{0}-vr1egmr9el-vr1egmr9el.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\zh28bb37nn-{0}-kbrnm935zg-kbrnm935zg.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\twowmwiqja-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\yeztmvic09-{0}-y7v9cxd14o-y7v9cxd14o.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\f0ewpvo11z-{0}-notf2xhcfb-notf2xhcfb.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\sj0is5akcs-{0}-h1s4sie4z3-h1s4sie4z3.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\wuu061wxqz-{0}-63fj8s7r0e-63fj8s7r0e.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\aj26swcpub-{0}-0j3bgjxly4-0j3bgjxly4.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\5r5tj7pknz-{0}-47otxtyo56-47otxtyo56.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\l4ep8957td-{0}-4v8eqarkd7-4v8eqarkd7.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\ji941jxj3r-{0}-356vix0kms-356vix0kms.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\ig9co80dmd-{0}-83jwlth58m-83jwlth58m.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\r2i5uan7i0-{0}-mrlpezrjn3-mrlpezrjn3.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\kpn6f87erw-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\zzerkm4i24-{0}-ag7o75518u-ag7o75518u.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\52c79w7ouf-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\sureeb1phj-{0}-0i3buxo5is-0i3buxo5is.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\dr9fwsro3y-{0}-o1o13a6vjx-o1o13a6vjx.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\f267hxi09i-{0}-ttgo8qnofa-ttgo8qnofa.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\y9ftto1ihy-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\uhl8s7ntq4-{0}-muycvpuwrr-muycvpuwrr.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\6h060jofbj-{0}-87fc7y1x7t-87fc7y1x7t.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\qvcaie3emz-{0}-mlv21k5csn-mlv21k5csn.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\sctxc317y9-{0}-ajolrdhgjm-ajolrdhgjm.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\8nplweimq5-{0}-a02jz9wraj-a02jz9wraj.gz
+D:\DoAnWeb - v2\qlkh\obj\Debug\net10.0\compressed\dstvfr3ucq-{0}-8fhvp9r7xc-8fhvp9r7xc.gz
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\appsettings.Development.json
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\appsettings.json
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\qlkh.staticwebassets.endpoints.json
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\qlkh.staticwebassets.runtime.json
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\qlkh.exe
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\qlkh.deps.json
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\qlkh.runtimeconfig.json
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\qlkh.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\qlkh.pdb
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Azure.Core.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Azure.Identity.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Humanizer.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.ClientModel.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.CodeDom.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Memory.Data.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb - v2 - v1\qlkh\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.csproj.AssemblyReference.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.GeneratedMSBuildEditorConfig.editorconfig
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.AssemblyInfoInputs.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.AssemblyInfo.cs
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.csproj.CoreCompileInputs.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.MvcApplicationPartsAssemblyInfo.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.RazorAssemblyInfo.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.RazorAssemblyInfo.cs
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\scopedcss\bundle\qlkh.styles.css
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\scopedcss\projectbundle\qlkh.bundle.scp.css
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\sctxc317y9-{0}-ajolrdhgjm-ajolrdhgjm.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\8nplweimq5-{0}-a02jz9wraj-a02jz9wraj.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\dstvfr3ucq-{0}-8fhvp9r7xc-8fhvp9r7xc.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\4qbscxkcqy-{0}-luyko89014-luyko89014.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\0krdzlyiix-{0}-5ipweew5fc-5ipweew5fc.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\x9872kpcbc-{0}-61n19gt1b8-61n19gt1b8.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\2tebt6k7mj-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\lbfqylwhmg-{0}-bqjiyaj88i-bqjiyaj88i.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\66upuz5g7j-{0}-c2jlpeoesf-c2jlpeoesf.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\w0fqd5tubg-{0}-erw9l3u2r3-erw9l3u2r3.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\cqxi867p0a-{0}-aexeepp0ev-aexeepp0ev.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\wp2ct2wpz7-{0}-d7shbmvgxk-d7shbmvgxk.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\v35qkorprt-{0}-ausgxo2sd3-ausgxo2sd3.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\axexrdx30n-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\29io5jeflx-{0}-cosvhxvwiu-cosvhxvwiu.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\jnyu5e8w9y-{0}-ub07r2b239-ub07r2b239.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\ca7uifi4it-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\qxkesduw32-{0}-b7pk76d08c-b7pk76d08c.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\hw07os16b0-{0}-fsbi9cje9m-fsbi9cje9m.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\aft4zctyak-{0}-rzd6atqjts-rzd6atqjts.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\qlz9654gj8-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\3jin81ou9d-{0}-dxx9fxp4il-dxx9fxp4il.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\a47ba3mnyz-{0}-jd9uben2k1-jd9uben2k1.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\6eaamiklnb-{0}-khv3u5hwcm-khv3u5hwcm.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\13xxeibojf-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\4lefvnsu0k-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\w0wn8rtrkh-{0}-c2oey78nd0-c2oey78nd0.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\tagd6fmbpv-{0}-tdbxkamptv-tdbxkamptv.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\217f2au11x-{0}-j5mq2jizvt-j5mq2jizvt.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\4tgldi180w-{0}-06098lyss8-06098lyss8.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\99nk8td9a6-{0}-nvvlpmu67g-nvvlpmu67g.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\l4rj3ldtl0-{0}-s35ty4nyc5-s35ty4nyc5.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\2fkwj7g7n6-{0}-pj5nd1wqec-pj5nd1wqec.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\gx1g5n9plb-{0}-46ein0sx1k-46ein0sx1k.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\u8osmfddhg-{0}-v0zj4ognzu-v0zj4ognzu.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\g3dmxkrcg1-{0}-37tfw0ft22-37tfw0ft22.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\oad7xod7b0-{0}-hrwsygsryq-hrwsygsryq.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\j0jcylmkkw-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\p412m2z0c6-{0}-ft3s53vfgj-ft3s53vfgj.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\oc54g5pd78-{0}-6cfz1n2cew-6cfz1n2cew.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\4xnmgukrbu-{0}-6pdc2jztkx-6pdc2jztkx.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\d97g16cajm-{0}-493y06b0oq-493y06b0oq.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\h7yvbqqxzj-{0}-iovd86k7lj-iovd86k7lj.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\s1scbgm5on-{0}-vr1egmr9el-vr1egmr9el.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\zh28bb37nn-{0}-kbrnm935zg-kbrnm935zg.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\twowmwiqja-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\yeztmvic09-{0}-y7v9cxd14o-y7v9cxd14o.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\f0ewpvo11z-{0}-notf2xhcfb-notf2xhcfb.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\sj0is5akcs-{0}-h1s4sie4z3-h1s4sie4z3.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\wuu061wxqz-{0}-63fj8s7r0e-63fj8s7r0e.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\aj26swcpub-{0}-0j3bgjxly4-0j3bgjxly4.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\5r5tj7pknz-{0}-47otxtyo56-47otxtyo56.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\l4ep8957td-{0}-4v8eqarkd7-4v8eqarkd7.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\ji941jxj3r-{0}-356vix0kms-356vix0kms.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\ig9co80dmd-{0}-83jwlth58m-83jwlth58m.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\r2i5uan7i0-{0}-mrlpezrjn3-mrlpezrjn3.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\kpn6f87erw-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\zzerkm4i24-{0}-ag7o75518u-ag7o75518u.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\52c79w7ouf-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\sureeb1phj-{0}-0i3buxo5is-0i3buxo5is.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\dr9fwsro3y-{0}-o1o13a6vjx-o1o13a6vjx.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\f267hxi09i-{0}-ttgo8qnofa-ttgo8qnofa.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\y9ftto1ihy-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\uhl8s7ntq4-{0}-muycvpuwrr-muycvpuwrr.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\6h060jofbj-{0}-87fc7y1x7t-87fc7y1x7t.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\qvcaie3emz-{0}-mlv21k5csn-mlv21k5csn.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\bt811uivuv-{0}-c8cghzmz1f-c8cghzmz1f.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\xkwap4ugq9-{0}-c8cghzmz1f-c8cghzmz1f.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\staticwebassets.build.json
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\staticwebassets.development.json
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\swae.build.ex.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.csproj.Up2Date
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.dll
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\refint\qlkh.dll
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.pdb
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\qlkh.genruntimeconfig.cache
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\ref\qlkh.dll
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\co1atq09xi-{0}-bxj0cnldkw-bxj0cnldkw.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\9zhbzwz36m-{0}-oau6e3k3nh-oau6e3k3nh.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\nnuhm0xru0-{0}-vs1cbye1d4-vs1cbye1d4.gz
+D:\DoAnWeb - v2 - v1\qlkh\obj\Debug\net10.0\compressed\z3a258f8xw-{0}-3wop24j3xs-3wop24j3xs.gz

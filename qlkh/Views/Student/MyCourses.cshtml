@@ -1,0 +1,128 @@
+@model List<qlkh.Models.Enrollment>
+
+@{
+    ViewData["Title"] = "Khóa học của tôi";
+}
+
+<div class="my-courses-page">
+    <div class="container py-5">
+
+        <div class="my-courses-hero">
+            <h1>Khóa học của tôi</h1>
+            <p class="mb-0">
+                Các khóa học online bạn đã đăng ký. Khi admin duyệt, bạn có thể vào học và xem video bài giảng.
+            </p>
+        </div>
+
+        @if (Model == null || !Model.Any())
+        {
+            <div class="empty-course-box">
+                <h4 class="fw-bold">Bạn chưa đăng ký khóa học nào</h4>
+                <p class="text-muted">
+                    Hãy chọn một khóa học phù hợp để bắt đầu học lập trình.
+                </p>
+
+                <a asp-controller="Course"
+                   asp-action="Index"
+                   class="btn btn-primary rounded-pill px-4">
+                    Xem danh sách khóa học
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var item in Model)
+                {
+                    var courseName = item.Course?.CourseName ?? "Khóa học";
+                    var imageUrl = item.Course?.ImageUrl ?? "";
+                    var statusCode = item.EnrollmentStatus?.StatusCode ?? "";
+
+                    var statusClass = "status-waiting";
+                    var displayStatus = "Chờ duyệt";
+
+                    if (statusCode == "APPROVED")
+                    {
+                        statusClass = "status-confirmed";
+                        displayStatus = "Đã duyệt";
+                    }
+                    else if (statusCode == "REJECTED")
+                    {
+                        statusClass = "status-cancelled";
+                        displayStatus = "Đã hủy";
+                    }
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="my-course-card h-100">
+
+                            @if (!string.IsNullOrWhiteSpace(imageUrl))
+                            {
+                                <img src="@imageUrl"
+                                     alt="@courseName"
+                                     class="my-course-img" />
+                            }
+                            else
+                            {
+                                <div class="my-course-img d-flex align-items-center justify-content-center bg-light">
+                                    <span class="fs-1">💻</span>
+                                </div>
+                            }
+
+                            <div class="my-course-body">
+                                <h5 class="my-course-title">@courseName</h5>
+
+                                <p class="my-course-meta">
+                                    Mã khóa học: <strong>@item.CourseId</strong>
+                                </p>
+
+                                <p class="my-course-meta">
+                                    Ngày đăng ký: @item.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                                </p>
+
+                                <span class="status-pill @statusClass">
+                                    @displayStatus
+                                </span>
+
+                                <div class="my-course-actions">
+                                    <a asp-controller="Course"
+                                       asp-action="Details"
+                                       asp-route-id="@item.CourseId"
+                                       class="btn btn-outline-primary w-50">
+                                        Chi tiết
+                                    </a>
+
+                                    @if (statusCode == "APPROVED")
+                                    {
+                                        <a asp-controller="Student"
+                                           asp-action="Learn"
+                                           asp-route-enrollmentId="@item.EnrollmentId"
+                                           class="btn btn-success w-50">
+                                            Vào học
+                                        </a>
+                                    }
+                                    else if (statusCode == "REJECTED")
+                                    {
+                                        <button type="button"
+                                                class="btn btn-danger w-50"
+                                                disabled>
+                                            Đã hủy
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button"
+                                                class="btn btn-warning w-50"
+                                                disabled>
+                                            Chờ duyệt
+                                        </button>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

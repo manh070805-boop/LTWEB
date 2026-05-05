@@ -1,0 +1,139 @@
+@model List<qlkh.Models.Lesson>
+
+@{
+    Layout = "_TeacherLayout";
+    ViewData["Title"] = "Quản lý bài học";
+
+    var classId = ViewBag.ClassId?.ToString() ?? "";
+    var className = ViewBag.ClassName?.ToString() ?? "";
+    var courseName = ViewBag.CourseName?.ToString() ?? "";
+}
+
+<div class="teacher-page">
+
+    <div class="teacher-title-row pro-title">
+        <a asp-controller="Teacher"
+           asp-action="MyClasses"
+           class="btn btn-light rounded-pill mb-3">
+            ← Quay lại
+        </a>
+
+        <span class="teacher-kicker">LESSON STUDIO</span>
+        <h1>Quản lý bài học</h1>
+        <p>@courseName - @className</p>
+    </div>
+
+    <div class="lesson-studio-grid">
+        <div class="lesson-form-card lesson-pro-form">
+            <h4>🎥 Thêm video bài học</h4>
+            <p class="text-muted">Dán link YouTube, đặt thứ tự và tên bài học.</p>
+
+            <form asp-controller="Teacher" asp-action="CreateLesson" method="post">
+                <input type="hidden" name="classId" value="@classId" />
+
+                <label class="form-label">Thứ tự bài</label>
+                <input type="number" name="orderIndex" class="form-control mb-3" min="1" required />
+
+                <label class="form-label">Tên bài học</label>
+                <input type="text" name="title" class="form-control mb-3" required />
+
+                <label class="form-label">Link video YouTube</label>
+                <input type="text" name="videoUrl" class="form-control mb-4" />
+
+                <button type="submit" class="btn btn-primary w-100 rounded-pill">
+                    + Thêm bài học
+                </button>
+            </form>
+        </div>
+
+        <div class="lesson-list-card">
+            <div class="panel-title">
+                <div>
+                    <h3>Danh sách bài học</h3>
+                    <p>@Model.Count bài học trong lớp này</p>
+                </div>
+            </div>
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="teacher-empty mt-3">
+                    <h5>Chưa có bài học nào</h5>
+                    <p>Hãy thêm video bài giảng đầu tiên cho lớp này.</p>
+                </div>
+            }
+            else
+            {
+                <div class="lesson-pro-list">
+                    @foreach (var lesson in Model)
+                    {
+                        <div class="lesson-pro-item">
+                            <div class="lesson-number">@lesson.OrderIndex</div>
+
+                            <div class="lesson-main">
+                                <strong>@lesson.Title</strong>
+
+                                @if (!string.IsNullOrWhiteSpace(lesson.VideoUrl))
+                                {
+                                    <a href="@lesson.VideoUrl" target="_blank">Xem video</a>
+                                }
+                                else
+                                {
+                                    <span>Chưa có video</span>
+                                }
+                            </div>
+
+                            <div class="lesson-actions">
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-primary"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#edit-@lesson.LessonId">
+                                    Sửa
+                                </button>
+
+                                <form asp-controller="Teacher"
+                                      asp-action="DeleteLesson"
+                                      method="post"
+                                      onsubmit="return confirm('Bạn có chắc muốn xóa bài học này không?');">
+                                    <input type="hidden" name="lessonId" value="@lesson.LessonId" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        Xóa
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="collapse edit-box" id="edit-@lesson.LessonId">
+                            <form asp-controller="Teacher" asp-action="UpdateLesson" method="post">
+                                <input type="hidden" name="lessonId" value="@lesson.LessonId" />
+
+                                <div class="row g-3">
+                                    <div class="col-md-2">
+                                        <label class="form-label">Thứ tự</label>
+                                        <input type="number" name="orderIndex" value="@lesson.OrderIndex" class="form-control" min="1" required />
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Tên bài học</label>
+                                        <input type="text" name="title" value="@lesson.Title" class="form-control" required />
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label">Link video</label>
+                                        <input type="text" name="videoUrl" value="@lesson.VideoUrl" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button type="submit" class="btn btn-success w-100 rounded-pill">
+                                            Lưu
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
