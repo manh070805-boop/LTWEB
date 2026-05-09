@@ -44,6 +44,9 @@ namespace qlkh.Models
         [ForeignKey("ClassId")]
         public CenterClass? CenterClass { get; set; }
 
+        [ForeignKey("ApprovedByTeacherId")]
+        public Teacher? ApprovedByTeacher { get; set; }
+
         public ICollection<Payment> Payments { get; set; } = new List<Payment>();
     }
 }

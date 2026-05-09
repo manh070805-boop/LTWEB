@@ -35,5 +35,7 @@ namespace qlkh.Models
         public CourseLevel? CourseLevel { get; set; }
 
         public ICollection<Enrollment>? Enrollments { get; set; }
+
+        public ICollection<CenterClass> CenterClasses { get; set; } = new List<CenterClass>();
     }
 }

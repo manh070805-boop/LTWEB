@@ -51,7 +51,6 @@ namespace qlkh.Controllers
                 });
             }
 
-            // Không đổi PAID, chỉ ghi nhận học viên đã xác nhận
             payment.TransactionNo = $"CONFIRM_{DateTime.Now:yyyyMMddHHmmss}";
             _context.SaveChanges();
 

@@ -54,5 +54,7 @@ namespace qlkh.Models
 
         // 1 class có nhiều student (qua Enrollment)
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+
+        public ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
     }
 }

@@ -27,6 +27,7 @@ namespace qlkh.Data
 
     
         public DbSet<Lesson> Lessons { get; set; }   
+        public DbSet<Schedule> Schedules { get; set; }   
 
        
         public DbSet<Enrollment> Enrollments { get; set; }

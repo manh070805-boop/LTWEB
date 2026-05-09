@@ -1,0 +1,150 @@
+@model qlkh.Areas.Admin.ViewModels.CenterClassFormViewModel
+
+@{
+    ViewData["Title"] = "Thêm lớp học";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Thêm lớp học mới</h1>
+        <p>Tạo lớp học và phân công giảng viên</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="edit-grid animate-in">
+    <div class="edit-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Thông tin lớp học</div>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="All" class="validation-summary"></div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="ClassId" class="form-label">Mã lớp học</label>
+                            <input asp-for="ClassId" class="form-control" placeholder="VD: L01-NODEJS" />
+                            <span asp-validation-for="ClassId" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ClassName" class="form-label">Tên lớp học</label>
+                            <input asp-for="ClassName" class="form-control" placeholder="Tên lớp gợi nhớ" />
+                            <span asp-validation-for="ClassName" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="CourseId" class="form-label">Khóa học</label>
+                            <select asp-for="CourseId" class="form-select" asp-items="ViewBag.CourseId">
+                                <option value="">-- Chọn khóa học --</option>
+                            </select>
+                            <span asp-validation-for="CourseId" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TeacherId" class="form-label">Giảng viên phụ trách</label>
+                            <select asp-for="TeacherId" class="form-select" asp-items="ViewBag.TeacherId">
+                                <option value="">-- Chọn giảng viên --</option>
+                            </select>
+                            <span asp-validation-for="TeacherId" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="StatusId" class="form-label">Trạng thái lớp</label>
+                            <select asp-for="StatusId" class="form-select" asp-items="ViewBag.StatusId">
+                                <option value="">-- Chọn trạng thái --</option>
+                            </select>
+                            <span asp-validation-for="StatusId" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="RoomName" class="form-label">Phòng học</label>
+                            <input asp-for="RoomName" class="form-control" placeholder="Phòng số / Tòa nhà" />
+                            <span asp-validation-for="RoomName" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label asp-for="StartDate" class="form-label">Ngày khai giảng</label>
+                            <input asp-for="StartDate" type="date" class="form-control" />
+                            <span asp-validation-for="StartDate" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EndDate" class="form-label">Ngày kết thúc</label>
+                            <input asp-for="EndDate" type="date" class="form-control" />
+                            <span asp-validation-for="EndDate" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MaxStudents" class="form-label">Sĩ số tối đa</label>
+                            <input asp-for="MaxStudents" type="number" class="form-control" placeholder="30" />
+                            <span asp-validation-for="MaxStudents" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;gap:.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                            </svg>
+                            Tạo lớp học
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Quản lý lớp học</div>
+            </div>
+            <div class="card-body">
+                <ul class="guide-list">
+                    <li>
+                        <strong>Ngày khai giảng:</strong> Phải là ngày trong tương lai hoặc ngày hiện tại.
+                    </li>
+                    <li>
+                        <strong>Sĩ số:</strong> Đảm bảo số lượng học viên tối đa phù hợp với diện tích phòng học được chỉ định.
+                    </li>
+                    <li>
+                        <strong>Giảng viên:</strong> Một giảng viên có thể phụ trách nhiều lớp nếu thời gian không bị trùng lặp.
+                    </li>
+                    <li>
+                        <strong>Phòng học:</strong> Kiểm tra tính khả dụng của phòng trước khi ấn định chính thức.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="background: var(--info-bg); border-color: var(--info-border);">
+            <div class="card-body">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <div style="font-size:1.5rem;">📅</div>
+                    <div>
+                        <h4 style="margin:0 0 .25rem 0; font-size:.875rem; color:var(--info-text);">Lập lịch học</h4>
+                        <p style="margin:0; font-size:.8125rem; color:var(--info-text); opacity:0.8; line-height:1.4;">
+                            Sau khi tạo lớp, hãy truy cập phần "Lịch học" để thiết lập các buổi học cụ thể cho lớp học này.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

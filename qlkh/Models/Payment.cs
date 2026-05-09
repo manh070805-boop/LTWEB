@@ -11,6 +11,7 @@ namespace qlkh.Models
 
         public long EnrollmentId { get; set; }
 
+        [Column(TypeName = "decimal(15,2)")]
         public decimal Amount { get; set; }
 
         public int MethodId { get; set; }

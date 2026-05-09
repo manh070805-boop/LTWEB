@@ -1,0 +1,70 @@
+@model qlkh.Models.Student
+
+@{
+    ViewData["Title"] = "Xóa học viên";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Xác nhận xóa học viên</h1>
+        <p>Hành động này không thể hoàn tác</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="card" style="max-width:500px;">
+    <div class="card-header" style="border-bottom-color:#fca5a5;">
+        <div class="card-title" style="color:#991b1b;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:sub;margin-right:.375rem;">
+                <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+            </svg>
+            Xóa học viên
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            Bạn sắp xóa học viên <strong>@Model.Account?.FullName</strong> (Mã: @Model.StudentId).
+        </div>
+
+        <table style="width:100%;border-collapse:collapse;margin-bottom:1.5rem;">
+            <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:.5rem 0;width:40%;color:var(--text-500);font-size:.8125rem;">Mã học viên</td>
+                <td style="padding:.5rem 0;font-weight:600;color:var(--text-900);">@Model.StudentId</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:.5rem 0;color:var(--text-500);font-size:.8125rem;">Tên đăng nhập</td>
+                <td style="padding:.5rem 0;">@Model.Account?.Username</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:.5rem 0;color:var(--text-500);font-size:.8125rem;">Họ và tên</td>
+                <td style="padding:.5rem 0;">@Model.Account?.FullName</td>
+            </tr>
+            <tr>
+                <td style="padding:.5rem 0;color:var(--text-500);font-size:.8125rem;">Điện thoại</td>
+                <td style="padding:.5rem 0;color:var(--text-500);">@Model.Phone</td>
+            </tr>
+        </table>
+
+        <form asp-action="Delete" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="StudentId" />
+            <div style="display:flex;gap:.75rem;">
+                <button type="submit" class="btn btn-danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                    </svg>
+                    Xác nhận xóa
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>

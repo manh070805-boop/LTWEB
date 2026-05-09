@@ -37,6 +37,8 @@ namespace qlkh.Models
         public Role? Role { get; set; }
 
         public Student? Student { get; set; }
+
+        public Teacher? Teacher { get; set; }
         
     }
 }

@@ -1,0 +1,230 @@
+@model qlkh.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Chi tiết ghi danh";
+    var badgeClass = Model.StatusId == 1 ? "badge-warning" :
+                     Model.StatusId == 2 ? "badge-success" :
+                     Model.StatusId == 3 ? "badge-danger" : "badge-neutral";
+    
+    var totalAmount = Model.Course?.Price ?? 0;
+    var paidAmount = Model.Payments?.Sum(p => p.Amount) ?? 0;
+    var dueAmount = totalAmount - paidAmount;
+    var paymentStatus = paidAmount >= totalAmount && totalAmount > 0 ? "success" : (paidAmount > 0 ? "warning" : "danger");
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Thông tin ghi danh</h1>
+        <p>Học viên: @Model.Student?.Account?.FullName • Mã ghi danh: <span class="td-mono">#@Model.EnrollmentId</span></p>
+    </div>
+    <div style="display:flex;gap:.625rem;">
+        <a asp-action="Edit" asp-route-id="@Model.EnrollmentId" class="btn btn-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Chỉnh sửa
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Quay lại
+        </a>
+    </div>
+</div>
+
+<div class="details-grid">
+    <div class="details-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Thông tin đăng ký</div>
+                <span class="badge @badgeClass">@Model.EnrollmentStatus?.StatusName</span>
+            </div>
+            <div class="card-body">
+                <div class="info-grid-modern">
+                    <div class="info-item-modern">
+                        <label>Khóa học</label>
+                        <div class="value">@Model.Course?.CourseName</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Lớp học</label>
+                        <div class="value">@(Model.CenterClass?.ClassName ?? "Chưa xếp lớp")</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Ngày ghi danh</label>
+                        <div class="value">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Người duyệt</label>
+                        <div class="value">@(Model.ApprovedByTeacher?.Account?.FullName ?? "Chờ duyệt")</div>
+                    </div>
+                    @if (Model.ApprovedAt.HasValue)
+                    {
+                        <div class="info-item-modern">
+                            <label>Ngày duyệt</label>
+                            <div class="value">@Model.ApprovedAt.Value.ToString("dd/MM/yyyy HH:mm")</div>
+                        </div>
+                    }
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Note))
+                {
+                    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+                        <label style="display:block; font-size:.6875rem; font-weight:600; color:var(--text-400); text-transform:uppercase; margin-bottom:.75rem;">Ghi chú</label>
+                        <div style="color:var(--text-700); font-size:.9375rem;">@Model.Note</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Lịch sử thanh toán</div>
+                <span class="badge badge-neutral">@(Model.Payments?.Count ?? 0) giao dịch</span>
+            </div>
+            <div class="card-body" style="padding:0;">
+                <div class="table-wrapper" style="border:none;box-shadow:none;border-radius:0;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Mã GD</th>
+                                <th>Số tiền</th>
+                                <th>Ngày TT</th>
+                                <th>Phương thức</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in Model.Payments)
+                            {
+                                <tr>
+                                    <td class="td-mono">#@p.PaymentId</td>
+                                    <td style="font-weight:600;color:var(--success-text);">@p.Amount.ToString("N0") VNĐ</td>
+                                    <td class="text-sm">@(p.PaidAt?.ToString("dd/MM/yyyy HH:mm") ?? p.CreatedAt.ToString("dd/MM/yyyy HH:mm"))</td>
+                                    <td>@p.Method?.MethodName</td>
+                                </tr>
+                            }
+                            @if (!Model.Payments.Any())
+                            {
+                                <tr>
+                                    <td colspan="4" style="text-align:center;padding:2rem;color:var(--text-400);">Chưa có dữ liệu thanh toán cho ghi danh này.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-sidebar">
+        <div class="card payment-summary-card @paymentStatus">
+            <div class="card-header">
+                <div class="card-title">Tóm tắt học phí</div>
+            </div>
+            <div class="card-body">
+                <div class="payment-stat">
+                    <label>Tổng học phí</label>
+                    <div class="val">@totalAmount.ToString("N0") đ</div>
+                </div>
+                <div class="payment-stat">
+                    <label>Đã thanh toán</label>
+                    <div class="val text-success">@paidAmount.ToString("N0") đ</div>
+                </div>
+                <div class="payment-stat due">
+                    <label>Còn lại</label>
+                    <div class="val">@dueAmount.ToString("N0") đ</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Học viên & Lớp học</div>
+            </div>
+            <div class="card-body">
+                <div class="linked-entities">
+                    <div class="entity-item">
+                        <div class="entity-icon">🎓</div>
+                        <div class="entity-info">
+                            <label>Học viên</label>
+                            <strong>@Model.Student?.Account?.FullName</strong>
+                            <a asp-controller="Students" asp-action="Details" asp-route-id="@Model.StudentId" class="link-sm">Xem hồ sơ</a>
+                        </div>
+                    </div>
+                    @if (Model.CenterClass != null)
+                    {
+                        <div class="entity-item">
+                            <div class="entity-icon">🏫</div>
+                            <div class="entity-info">
+                                <label>Lớp học</label>
+                                <strong>@Model.CenterClass.ClassName</strong>
+                                <a asp-controller="Classes" asp-action="Details" asp-route-id="@Model.ClassId" class="link-sm">Chi tiết lớp</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .info-grid-modern {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .info-item-modern label {
+        display: block;
+        font-size: .6875rem;
+        font-weight: 600;
+        color: var(--text-400);
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        margin-bottom: .375rem;
+    }
+
+    .info-item-modern .value {
+        font-size: .9375rem;
+        color: var(--text-900);
+        font-weight: 500;
+    }
+
+    /* Payment Summary */
+    .payment-summary-card { border-left: 4px solid var(--border); }
+    .payment-summary-card.success { border-left-color: var(--success); }
+    .payment-summary-card.warning { border-left-color: var(--warning); }
+    .payment-summary-card.danger { border-left-color: var(--danger); }
+
+    .payment-stat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .75rem;
+    }
+
+    .payment-stat label { font-size: .8125rem; color: var(--text-500); font-weight: 500; }
+    .payment-stat .val { font-size: 1rem; font-weight: 700; color: var(--text-900); }
+    .payment-stat.due { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border); }
+    .payment-stat.due .val { color: var(--danger); font-size: 1.125rem; }
+
+    /* Linked Entities */
+    .linked-entities { display: flex; flex-direction: column; gap: 1.5rem; }
+    .entity-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .entity-icon { font-size: 1.5rem; width: 40px; height: 40px; background: var(--bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .entity-info label { display: block; font-size: .6875rem; color: var(--text-400); text-transform: uppercase; margin-bottom: 2px; }
+    .entity-info strong { display: block; font-size: .9375rem; color: var(--text-900); }
+    .link-sm { font-size: .75rem; color: var(--primary); font-weight: 600; text-decoration: none; }
+    .link-sm:hover { text-decoration: underline; }
+
+    @@media (max-width: 1024px) {
+        .details-grid { grid-template-columns: 1fr; }
+    }
+</style>

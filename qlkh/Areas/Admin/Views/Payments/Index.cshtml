@@ -1,0 +1,81 @@
+@model IEnumerable<qlkh.Models.Payment>
+
+@{
+    ViewData["Title"] = "Quản lý thanh toán";
+
+    string PayBadge(int? statusId) => statusId switch
+    {
+        1 => "badge-warning",
+        2 => "badge-success",
+        3 => "badge-danger",
+        _ => "badge-neutral"
+    };
+
+    string FormatCurrency(decimal amount) => string.Format("{0:N0} đ", amount);
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Danh sách thanh toán</h1>
+        <p>Theo dõi giao dịch học phí</p>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><polyline points="20 6 9 17 4 12"/></svg>
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="table-wrapper">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Học viên / Khóa học</th>
+                <th>Số tiền</th>
+                <th>Phương thức</th>
+                <th>Ngày thanh toán</th>
+                <th>Trạng thái</th>
+                <th style="width:180px;">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="td-mono">@item.PaymentId</td>
+                    <td>
+                        <div style="font-weight:500;color:var(--text-900);">@item.Enrollment?.Student?.Account?.FullName</div>
+                        <div class="text-muted text-xs">@item.Enrollment?.Course?.CourseName</div>
+                    </td>
+                    <td style="font-weight:700;color:var(--success-text);">@FormatCurrency(item.Amount)</td>
+                    <td class="text-muted">@item.Method?.MethodName</td>
+                    <td class="text-muted text-sm">
+                        @(item.PaidAt.HasValue ? item.PaidAt.Value.ToString("dd/MM/yyyy HH:mm") : "—")
+                    </td>
+                    <td><span class="badge @PayBadge(item.StatusId)">@item.Status?.StatusName</span></td>
+                    <td>
+                        <div style="display:flex;gap:.375rem;">
+                            @if (item.Status?.StatusCode != "PAID")
+                            {
+                                <form asp-action="Approve" asp-route-id="@item.PaymentId" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn duyệt thanh toán này? Việc này sẽ tự động duyệt cả đăng ký khóa học.');">
+                                    <button type="submit" class="btn btn-success btn-sm">Duyệt nhanh</button>
+                                </form>
+                            }
+                            <a asp-action="Details" asp-route-id="@item.PaymentId" class="btn btn-info btn-sm">Chi tiết</a>
+                            <a asp-action="Edit" asp-route-id="@item.PaymentId" class="btn btn-warning btn-sm">Sửa</a>
+                            <a asp-action="Delete" asp-route-id="@item.PaymentId" class="btn btn-danger btn-sm">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any())
+            {
+                <tr><td colspan="7" style="text-align:center;padding:3rem;color:var(--text-400);">Chưa có giao dịch nào</td></tr>
+            }
+        </tbody>
+    </table>
+</div>

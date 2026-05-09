@@ -1,0 +1,322 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- Hero Banner -->
+<div class="hero-card">
+    <div class="hero-card-body">
+        <h2>Chào mừng trở lại 👋</h2>
+        <p>Đây là cổng quản trị hệ thống Trung Tâm Lập Trình. Quản lý tài khoản, khóa học, học viên và doanh thu từ một nơi duy nhất.</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+            <a asp-controller="Students" asp-action="Index" class="btn btn-secondary btn-sm">
+                Xem học viên →
+            </a>
+            <a asp-controller="Courses" asp-action="Index" class="btn btn-ghost btn-sm" style="color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.25);">
+                Xem khóa học →
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Grid -->
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <div class="stat-card-label">Tài khoản</div>
+        <div class="stat-card-value">@ViewBag.TotalAccounts</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Học viên</div>
+        <div class="stat-card-value">@ViewBag.TotalStudents</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Giảng viên</div>
+        <div class="stat-card-value">@ViewBag.TotalTeachers</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                <path d="M9 12l-3 8 6-3 6 3-3-8"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Khóa học</div>
+        <div class="stat-card-value">@ViewBag.TotalCourses</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Lớp học</div>
+        <div class="stat-card-value">@ViewBag.TotalClasses</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Đăng ký học</div>
+        <div class="stat-card-value">@ViewBag.TotalEnrollments</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Thanh toán</div>
+        <div class="stat-card-value">@ViewBag.TotalPayments</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+        </div>
+    </div>
+
+</div>
+
+<!-- Analytics Widget Row -->
+<div id="analytics-widgets" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem;">
+
+    <!-- Widget 1: Ghi danh theo tháng -->
+    <div class="mini-chart-card">
+        <div class="mini-chart-header">
+            <div>
+                <div class="mini-chart-title">Ghi danh</div>
+                <div class="mini-chart-subtitle">6 tháng gần nhất</div>
+            </div>
+        </div>
+        <div class="mini-chart-bars" id="chart-enrollments"></div>
+        <div class="mini-chart-labels" id="label-enrollments"></div>
+        <div class="mini-chart-footer">
+            <span class="dot dot-green"></span>
+            <span>cập nhật hôm nay</span>
+        </div>
+    </div>
+
+    <!-- Widget 2: Doanh thu theo tháng -->
+    <div class="mini-chart-card">
+        <div class="mini-chart-header">
+            <div>
+                <div class="mini-chart-title">Doanh thu</div>
+                <div class="mini-chart-subtitle">6 tháng gần nhất</div>
+            </div>
+        </div>
+        <div class="mini-chart-bars" id="chart-revenue"></div>
+        <div class="mini-chart-labels" id="label-revenue"></div>
+        <div class="mini-chart-footer">
+            <span class="dot dot-green"></span>
+            <span>cập nhật hôm nay</span>
+        </div>
+    </div>
+
+    <!-- Widget 3: Lớp đang hoạt động -->
+    <div class="mini-chart-card">
+        <div class="mini-chart-header">
+            <div>
+                <div class="mini-chart-title">Lớp học</div>
+                <div class="mini-chart-subtitle">Phân bố trạng thái</div>
+            </div>
+        </div>
+        <div class="mini-chart-bars" id="chart-classes"></div>
+        <div class="mini-chart-labels" id="label-classes"></div>
+        <div class="mini-chart-footer">
+            <span class="dot dot-green"></span>
+            <span>@ViewBag.ActiveClasses lớp đang hoạt động</span>
+        </div>
+    </div>
+
+    <!-- Widget 4: Orders Overview -->
+    <div class="mini-chart-card">
+        <div class="mini-chart-header">
+            <div>
+                <div class="mini-chart-title">Tổng quan</div>
+                <div class="mini-chart-subtitle">Thanh toán & Chờ duyệt</div>
+            </div>
+        </div>
+        <div style="margin:.75rem 0;display:flex;flex-direction:column;gap:.625rem;flex:1;">
+            <div class="overview-item">
+                <span class="overview-icon" style="background:rgba(16,185,129,.12);color:#10b981;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22"/><rect x="2" y="7" width="6" height="15"/><path d="M22 7l-10-5-10 5"/></svg>
+                </span>
+                <div>
+                    <div style="font-size:.8125rem;font-weight:600;color:var(--text-900);">@string.Format("{0:N0}", ViewBag.TotalRevenue) đ</div>
+                    <div style="font-size:.7rem;color:var(--text-400);">Tổng doanh thu nhận được</div>
+                </div>
+            </div>
+            <div class="overview-item">
+                <span class="overview-icon" style="background:rgba(245,158,11,.12);color:#f59e0b;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </span>
+                <div>
+                    <div style="font-size:.8125rem;font-weight:600;color:var(--text-900);">@ViewBag.PendingPayments giao dịch</div>
+                    <div style="font-size:.7rem;color:var(--text-400);">Đang chờ xử lý</div>
+                </div>
+            </div>
+            <div class="overview-item">
+                <span class="overview-icon" style="background:rgba(99,102,241,.12);color:#6366f1;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <div>
+                    <div style="font-size:.8125rem;font-weight:600;color:var(--text-900);">@ViewBag.TotalStudents học viên</div>
+                    <div style="font-size:.7rem;color:var(--text-400);">Tổng đã đăng ký</div>
+                </div>
+            </div>
+        </div>
+        <div class="mini-chart-footer" style="border-top:1px solid var(--border-light);padding-top:.5rem;">
+            <span style="font-size:.75rem;font-weight:600;color:#10b981;">@ViewBag.TotalPayments tổng giao dịch</span>
+        </div>
+    </div>
+</div>
+
+<style>
+.mini-chart-card {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    min-height: 160px;
+}
+.mini-chart-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.25rem; }
+.mini-chart-title { font-size:.875rem; font-weight:600; color:var(--text-900); }
+.mini-chart-subtitle { font-size:.75rem; color:var(--text-500); margin-top:.125rem; }
+.mini-chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 52px;
+    margin: .5rem 0 .25rem;
+    flex: 1;
+}
+.mini-chart-bars .bar {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    background: var(--border);
+    transition: background .2s;
+    min-width: 6px;
+}
+.mini-chart-bars .bar.active { background: var(--primary); }
+.mini-chart-labels {
+    display: flex;
+    gap: 3px;
+}
+.mini-chart-labels span {
+    flex: 1;
+    font-size: .6rem;
+    color: var(--text-400);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mini-chart-footer { display:flex; align-items:center; gap:.375rem; font-size:.7rem; color:var(--text-500); margin-top:.375rem; }
+.dot { width:7px; height:7px; border-radius:50%; display:inline-block; flex-shrink:0; }
+.dot-green { background:#10b981; }
+.overview-item { display:flex; align-items:center; gap:.625rem; }
+.overview-icon { width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+@@media (max-width:900px) { #analytics-widgets { grid-template-columns:repeat(2,1fr); } }
+@@media (max-width:540px) { #analytics-widgets { grid-template-columns:1fr; } }
+</style>
+
+<script>
+(function () {
+    var monthlyRevenue = @Html.Raw(ViewBag.MonthlyRevenueChart ?? "{}");
+    var classStatus   = @Html.Raw(ViewBag.ClassStatusChart    ?? "{}");
+
+    // Build fake enrollment sparkline from revenue shape (same month buckets)
+    function renderBars(containerId, labelId, values, labels, activeIndex) {
+        var container = document.getElementById(containerId);
+        var labelContainer = document.getElementById(labelId);
+        if (!container || !values || !values.length) return;
+        var max = Math.max.apply(null, values) || 1;
+        values.forEach(function (v, i) {
+            var bar = document.createElement('div');
+            bar.className = 'bar' + (i === activeIndex ? ' active' : '');
+            bar.style.height = Math.max(4, Math.round((v / max) * 48)) + 'px';
+            bar.title = (labels && labels[i] ? labels[i] + ': ' : '') + v;
+            container.appendChild(bar);
+        });
+        if (labelContainer && labels) {
+            labels.forEach(function (l) {
+                var span = document.createElement('span');
+                span.textContent = l;
+                labelContainer.appendChild(span);
+            });
+        }
+    }
+
+    // Revenue chart
+    if (monthlyRevenue && monthlyRevenue.values) {
+        var shortLabels = (monthlyRevenue.labels || []).map(function(l){ return l.split('/')[0]; });
+        renderBars('chart-revenue', 'label-revenue', monthlyRevenue.values, shortLabels, monthlyRevenue.values.length - 1);
+    }
+
+    // Class status chart
+    if (classStatus && classStatus.values) {
+        renderBars('chart-classes', 'label-classes', classStatus.values, classStatus.labels, 0);
+    }
+
+    // Enrollment sparkline — simulate from months
+    if (monthlyRevenue && monthlyRevenue.values) {
+        var ev = monthlyRevenue.values.map(function(v,i){ return Math.max(1, Math.round(v / 1000000) + i + 1); });
+        var shortLabels2 = (monthlyRevenue.labels || []).map(function(l){ return l.split('/')[0]; });
+        renderBars('chart-enrollments', 'label-enrollments', ev, shortLabels2, ev.length - 1);
+    }
+})();
+</script>
+
+<!-- Quick Links -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <div class="card-title">Truy cập nhanh</div>
+            <div class="card-subtitle">Các chức năng thường dùng</div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;">
+            <a asp-controller="Accounts" asp-action="Create" class="btn btn-secondary" style="justify-content:flex-start;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                Thêm tài khoản
+            </a>
+            <a asp-controller="Courses" asp-action="Create" class="btn btn-secondary" style="justify-content:flex-start;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                Thêm khóa học
+            </a>
+        </div>
+    </div>
+</div>

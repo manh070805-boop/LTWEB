@@ -1,0 +1,203 @@
+@model qlkh.Models.Payment
+
+@{
+    ViewData["Title"] = "Chi tiết thanh toán";
+    var badgeClass = Model.StatusId == 1 ? "badge-warning" :
+                     Model.StatusId == 2 ? "badge-success" :
+                     Model.StatusId == 3 ? "badge-danger" : "badge-neutral";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Chi tiết giao dịch</h1>
+        <p>Mã hóa đơn: <span class="td-mono">#@Model.PaymentId</span> • @Model.CreatedAt.ToString("dd/MM/yyyy")</p>
+    </div>
+    <div style="display:flex;gap:.625rem;">
+        <a asp-action="Edit" asp-route-id="@Model.PaymentId" class="btn btn-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Chỉnh sửa
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Quay lại
+        </a>
+    </div>
+</div>
+
+<div class="details-grid">
+    <div class="details-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Thông tin thanh toán</div>
+            </div>
+            <div class="card-body">
+                <div style="text-align:center; padding:2rem 0; background:var(--bg); border-radius:12px; margin-bottom:2rem; border:1px solid var(--border);">
+                    <label style="display:block; font-size:.75rem; color:var(--text-500); font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:.5rem;">Số tiền thanh toán</label>
+                    <div style="font-size:2.5rem; font-weight:800; color:var(--success-text);">@Model.Amount.ToString("N0") <span style="font-size:1.25rem; vertical-align:middle; opacity:.7;">VNĐ</span></div>
+                </div>
+
+                <div class="info-grid-modern">
+                    <div class="info-item-modern">
+                        <label>Phương thức</label>
+                        <div class="value">@Model.Method?.MethodName</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Mã giao dịch (Hệ thống)</label>
+                        <div class="value td-mono">@(Model.TransactionNo ?? "—")</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Ngày tạo phiếu</label>
+                        <div class="value">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Ngày thanh toán thực tế</label>
+                        <div class="value">@(Model.PaidAt.HasValue ? Model.PaidAt.Value.ToString("dd/MM/yyyy HH:mm") : "Chưa xác nhận")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Hạng mục thanh toán</div>
+            </div>
+            <div class="card-body">
+                <div class="payment-item-display">
+                    <div class="item-icon">📝</div>
+                    <div class="item-info">
+                        <strong>Thanh toán học phí: @Model.Enrollment?.Course?.CourseName</strong>
+                        <p>Mã ghi danh: #@Model.EnrollmentId • @Model.Enrollment?.Student?.Account?.FullName</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-sidebar">
+        <div class="card status-card-sidebar">
+            <div class="card-header">
+                <div class="card-title">Trạng thái giao dịch</div>
+            </div>
+            <div class="card-body">
+                <div class="payment-status-badge @paymentStatusClass(@Model.StatusId)">
+                    <div class="status-dot"></div>
+                    <strong>@Model.Status?.StatusName</strong>
+                </div>
+                <div style="margin-top:1.5rem; display:flex; flex-direction:column; gap:.75rem;">
+                    <button class="btn btn-outline" onclick="window.print()" style="justify-content:center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:.5rem;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                        In hóa đơn
+                    </button>
+                    <a asp-controller="Enrollments" asp-action="Details" asp-route-id="@Model.EnrollmentId" class="btn btn-outline" style="justify-content:center; text-decoration:none;">
+                        Xem hồ sơ ghi danh
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Khách hàng</div>
+            </div>
+            <div class="card-body">
+                <div class="customer-brief">
+                    <div class="avatar-circle">@Model.Enrollment?.Student?.Account?.FullName?[0]</div>
+                    <div class="customer-details">
+                        <strong>@Model.Enrollment?.Student?.Account?.FullName</strong>
+                        <span>@Model.Enrollment?.Student?.Account?.Email</span>
+                        <span>ID Học viên: @Model.Enrollment?.StudentId</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions {
+    string paymentStatusClass(int? id) {
+        return id == 1 ? "pending" : (id == 2 ? "completed" : "failed");
+    }
+}
+
+<style>
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .info-grid-modern {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .info-item-modern label {
+        display: block;
+        font-size: .6875rem;
+        font-weight: 600;
+        color: var(--text-400);
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        margin-bottom: .375rem;
+    }
+
+    .info-item-modern .value {
+        font-size: .9375rem;
+        color: var(--text-900);
+        font-weight: 500;
+    }
+
+
+    .payment-status-badge {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        padding: .875rem 1rem;
+        border-radius: 12px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+    }
+
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .payment-status-badge.pending { border-color: var(--warning-200); color: var(--warning-700); }
+    .payment-status-badge.pending .status-dot { background: var(--warning); box-shadow: 0 0 0 4px var(--warning-100); }
+    .payment-status-badge.completed { border-color: var(--success-200); color: var(--success-700); }
+    .payment-status-badge.completed .status-dot { background: var(--success); box-shadow: 0 0 0 4px var(--success-100); }
+    .payment-status-badge.failed { border-color: var(--danger-200); color: var(--danger-700); }
+    .payment-status-badge.failed .status-dot { background: var(--danger); box-shadow: 0 0 0 4px var(--danger-100); }
+
+
+    .payment-item-display { display: flex; gap: 1rem; align-items: center; }
+    .item-icon { font-size: 1.5rem; width: 44px; height: 44px; background: var(--bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .item-info strong { display: block; font-size: 1rem; color: var(--text-900); }
+    .item-info p { margin: 2px 0 0; font-size: .8125rem; color: var(--text-500); }
+
+
+    .customer-brief { display: flex; gap: 1rem; align-items: center; }
+    .avatar-circle { width: 48px; height: 48px; border-radius: 50%; background: var(--primary-600); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; }
+    .customer-details strong { display: block; font-size: .9375rem; color: var(--text-900); }
+    .customer-details span { display: block; font-size: .75rem; color: var(--text-500); margin-top: 1px; }
+
+    .btn-outline {
+        background: white;
+        border: 1px solid var(--border);
+        color: var(--text-700);
+        font-size: .8125rem;
+        font-weight: 600;
+        padding: .625rem 1rem;
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        transition: all .2s;
+    }
+    .btn-outline:hover { background: var(--bg); border-color: var(--text-300); }
+
+    @@media (max-width: 1024px) {
+        .details-grid { grid-template-columns: 1fr; }
+    }
+</style>

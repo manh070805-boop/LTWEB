@@ -1,0 +1,156 @@
+@model qlkh.Areas.Admin.ViewModels.CourseFormViewModel
+
+@{
+    ViewData["Title"] = "Thêm khóa học";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Thêm khóa học mới</h1>
+        <p>Tạo chương trình đào tạo mới</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="edit-grid animate-in">
+    <div class="edit-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Chi tiết khóa học</div>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="All" class="validation-summary"></div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="CourseId" class="form-label">Mã khóa học</label>
+                            <input asp-for="CourseId" class="form-control" placeholder="VD: NODEJS-PRO" />
+                            <span asp-validation-for="CourseId" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="CourseName" class="form-label">Tên khóa học</label>
+                            <input asp-for="CourseName" class="form-control" placeholder="Tên đầy đủ của khóa học" />
+                            <span asp-validation-for="CourseName" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="LevelId" class="form-label">Cấp độ</label>
+                            <select asp-for="LevelId" class="form-select" asp-items="ViewBag.LevelId">
+                                <option value="">-- Chọn cấp độ --</option>
+                            </select>
+                            <span asp-validation-for="LevelId" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Price" class="form-label">Học phí</label>
+                            <div style="position:relative;">
+                                <input asp-for="Price" type="number" class="form-control" style="padding-right:3.5rem;" />
+                                <span style="position:absolute;right:.875rem;top:50%;transform:translateY(-50%);color:var(--text-400);font-size:.8125rem;pointer-events:none;">VNĐ</span>
+                            </div>
+                            <span asp-validation-for="Price" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="DurationMonths" class="form-label">Thời lượng (tháng)</label>
+                            <div style="position:relative;">
+                                <input asp-for="DurationMonths" type="number" class="form-control" style="padding-right:4rem;" />
+                                <span style="position:absolute;right:.875rem;top:50%;transform:translateY(-50%);color:var(--text-400);font-size:.8125rem;pointer-events:none;">Tháng</span>
+                            </div>
+                            <span asp-validation-for="DurationMonths" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ImageUrl" class="form-label">Ảnh đại diện (URL)</label>
+                            <input asp-for="ImageUrl" class="form-control" placeholder="https://example.com/image.jpg" />
+                            <span asp-validation-for="ImageUrl" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="form-label">Mô tả khóa học</label>
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Mô tả tóm tắt nội dung chính..."></textarea>
+                        <span asp-validation-for="Description" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Roadmap" class="form-label">Lộ trình học tập (Markdown hoặc Text)</label>
+                        <textarea asp-for="Roadmap" class="form-control" rows="6" placeholder="Chi tiết các module học tập..."></textarea>
+                        <span asp-validation-for="Roadmap" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input asp-for="IsActive" class="form-check-input" />
+                            <span class="form-check-label">Kích hoạt để cho phép đăng ký ngay</span>
+                        </label>
+                    </div>
+
+                    <div style="display:flex;gap:.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                            </svg>
+                            Tạo khóa học
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Mẹo soạn nội dung</div>
+            </div>
+            <div class="card-body">
+                <ul class="guide-list">
+                    <li>
+                        <strong>Lộ trình:</strong> Sử dụng danh sách gạch đầu dòng để học viên dễ dàng hình dung các bước tiến triển.
+                    </li>
+                    <li>
+                        <strong>Giá cả:</strong> Cân nhắc giá thị trường cho các khóa học cùng cấp độ để tăng khả năng cạnh tranh.
+                    </li>
+                    <li>
+                        <strong>Hình ảnh:</strong> Kích thước khuyến nghị là 800x450px (tỷ lệ 16:9) để hiển thị tốt nhất trên web.
+                    </li>
+                    <li>
+                        <strong>Trạng thái:</strong> Bạn có thể tắt "Kích hoạt" nếu khóa học vẫn đang trong quá trình biên soạn.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="background: var(--primary-50); border-color: var(--primary-200);">
+            <div class="card-body">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <div style="font-size:1.5rem;">🎓</div>
+                    <div>
+                        <h4 style="margin:0 0 .25rem 0; font-size:.875rem; color:var(--primary-700);">Bước tiếp theo</h4>
+                        <p style="margin:0; font-size:.8125rem; color:var(--primary-600); opacity:0.8; line-height:1.4;">
+                            Sau khi tạo, bạn có thể thêm các "Lịch học" và "Bài học" chi tiết cho khóa học này trong trang quản lý.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

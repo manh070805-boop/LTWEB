@@ -1,0 +1,188 @@
+@model qlkh.Areas.Admin.ViewModels.EnrollmentFormViewModel
+
+@{
+    ViewData["Title"] = "Sửa ghi danh";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Cập nhật ghi danh</h1>
+        <p>Chỉnh sửa thông tin đăng ký học</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="edit-grid">
+    <div class="edit-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Chi tiết ghi danh</div>
+                <span class="badge badge-neutral">Mã ghi danh: @Model.EnrollmentId</span>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="EnrollmentId" />
+                    <div asp-validation-summary="All" class="validation-summary"></div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="StudentId" class="form-label">Học viên</label>
+                            <select asp-for="StudentId" class="form-select" asp-items="ViewBag.StudentId">
+                                <option value="">-- Chọn học viên --</option>
+                            </select>
+                            <span asp-validation-for="StudentId" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="CourseId" class="form-label">Khóa học đăng ký</label>
+                            <select asp-for="CourseId" class="form-select" asp-items="ViewBag.CourseId">
+                                <option value="">-- Chọn khóa học --</option>
+                            </select>
+                            <span asp-validation-for="CourseId" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="ClassId" class="form-label">Lớp học chỉ định</label>
+                            <select asp-for="ClassId" class="form-select" asp-items="ViewBag.ClassId">
+                                <option value="">-- Chưa xếp lớp --</option>
+                            </select>
+                            <span asp-validation-for="ClassId" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="StatusId" class="form-label">Trạng thái ghi danh</label>
+                            <select asp-for="StatusId" class="form-select" asp-items="ViewBag.StatusId">
+                                <option value="">-- Chọn trạng thái --</option>
+                            </select>
+                            <span asp-validation-for="StatusId" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="ApprovedByTeacherId" class="form-label">Người phê duyệt</label>
+                            <select asp-for="ApprovedByTeacherId" class="form-select" asp-items="ViewBag.ApprovedByTeacherId">
+                                <option value="">-- Chưa duyệt --</option>
+                            </select>
+                            <span asp-validation-for="ApprovedByTeacherId" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ApprovedAt" class="form-label">Thời điểm phê duyệt</label>
+                            <input asp-for="ApprovedAt" type="datetime-local" class="form-control" />
+                            <span asp-validation-for="ApprovedAt" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Note" class="form-label">Ghi chú nghiệp vụ</label>
+                        <textarea asp-for="Note" class="form-control" rows="4" placeholder="Nhập lý do thay đổi trạng thái hoặc các lưu ý đặc biệt..."></textarea>
+                        <span asp-validation-for="Note" class="form-error"></span>
+                    </div>
+
+                    <div style="display:flex;gap:.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                            </svg>
+                            Lưu thông tin
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Quy trình ghi danh</div>
+            </div>
+            <div class="card-body">
+                <ul class="guide-list">
+                    <li>
+                        <strong>Xếp lớp:</strong> Chỉ những lớp thuộc khóa học đã chọn mới hiển thị trong danh sách xếp lớp.
+                    </li>
+                    <li>
+                        <strong>Trạng thái:</strong> Khi chuyển sang <em>"Đã duyệt"</em>, hệ thống sẽ ghi nhận học viên chính thức thuộc về lớp học đó.
+                    </li>
+                    <li>
+                        <strong>Phê duyệt:</strong> Chỉ giảng viên hoặc quản trị viên mới có quyền phê duyệt ghi danh.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-4" style="background: var(--primary-50); border-color: var(--primary-100);">
+            <div class="card-body">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <div style="font-size:1.5rem;">💳</div>
+                    <div>
+                        <h4 style="margin:0 0 .25rem 0; font-size:.875rem; color:var(--primary-700);">Kiểm tra thanh toán</h4>
+                        <p style="margin:0; font-size:.8125rem; color:var(--primary-600); line-height:1.4;">
+                            Đảm bảo học viên đã hoàn tất học phí trước khi chuyển trạng thái sang <strong>"Hoàn thành"</strong>. Kiểm tra tại <a href="#" style="color:var(--primary-700); font-weight:600;">Lịch sử thanh toán</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .edit-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    .guide-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .guide-list li {
+        font-size: .875rem;
+        color: var(--text-600);
+        line-height: 1.5;
+        position: relative;
+        padding-left: 1.25rem;
+    }
+
+    .guide-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    .guide-list li strong {
+        color: var(--text-900);
+        display: block;
+        margin-bottom: .125rem;
+    }
+
+    @@media (max-width: 1024px) {
+        .edit-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

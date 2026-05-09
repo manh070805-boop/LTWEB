@@ -1,0 +1,66 @@
+@model qlkh.Models.Schedule
+
+@{
+    ViewData["Title"] = "Xóa lịch học";
+    string GetDayName(int d) => d == 0 ? "Chủ Nhật" : "Thứ " + (d + 1);
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Xác nhận xóa lịch học</h1>
+        <p>Hành động này không thể hoàn tác</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="card" style="max-width:480px;">
+    <div class="card-header" style="border-bottom-color:#fca5a5;">
+        <div class="card-title" style="color:#991b1b;">Xóa lịch học</div>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            Bạn sắp xóa lịch học của lớp <strong>@Model.CenterClass?.ClassName</strong>.
+        </div>
+
+        <table style="width:100%;border-collapse:collapse;margin-bottom:1.5rem;">
+            <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:.5rem 0;width:40%;color:var(--text-500);font-size:.8125rem;">Lớp học</td>
+                <td style="padding:.5rem 0;font-weight:500;">@Model.CenterClass?.ClassName</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:.5rem 0;color:var(--text-500);font-size:.8125rem;">Ngày học</td>
+                <td style="padding:.5rem 0;">@GetDayName(Model.DayOfWeek)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:.5rem 0;color:var(--text-500);font-size:.8125rem;">Thời gian</td>
+                <td style="padding:.5rem 0;">@Model.StartTime.ToString("HH:mm") — @Model.EndTime.ToString("HH:mm")</td>
+            </tr>
+            <tr>
+                <td style="padding:.5rem 0;color:var(--text-500);font-size:.8125rem;">Phòng học</td>
+                <td style="padding:.5rem 0;">@(Model.RoomName ?? "—")</td>
+            </tr>
+        </table>
+
+        <form asp-action="Delete" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="ScheduleId" />
+            <div style="display:flex;gap:.75rem;">
+                <button type="submit" class="btn btn-danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                    </svg>
+                    Xác nhận xóa
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+            </div>
+        </form>
+    </div>
+</div>

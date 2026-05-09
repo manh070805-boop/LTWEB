@@ -1,0 +1,123 @@
+@model qlkh.Areas.Admin.ViewModels.TeacherFormViewModel
+
+@{
+    ViewData["Title"] = "Thêm giảng viên";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Thêm giảng viên mới</h1>
+        <p>Liên kết tài khoản với hồ sơ giảng viên</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="edit-grid animate-in">
+    <div class="edit-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Thông tin giảng viên</div>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="All" class="validation-summary"></div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="TeacherId" class="form-label">Mã giảng viên</label>
+                            <input asp-for="TeacherId" class="form-control" placeholder="Ví dụ: GV001" />
+                            <span asp-validation-for="TeacherId" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="AccountId" class="form-label">Tài khoản liên kết</label>
+                            <select asp-for="AccountId" asp-items="ViewBag.AccountId" class="form-select">
+                                <option value="">-- Chọn tài khoản Teacher --</option>
+                            </select>
+                            <span asp-validation-for="AccountId" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="Phone" class="form-label">Số điện thoại</label>
+                            <input asp-for="Phone" class="form-control" placeholder="0xxx xxx xxx" />
+                            <span asp-validation-for="Phone" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Specialization" class="form-label">Chuyên môn chính</label>
+                            <input asp-for="Specialization" class="form-control" placeholder="VD: Web Fullstack, AI, Mobile App..." />
+                            <span asp-validation-for="Specialization" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Bio" class="form-label">Tiểu sử & Kinh nghiệm</label>
+                        <textarea asp-for="Bio" class="form-control" rows="4" placeholder="Giới thiệu ngắn gọn về quá trình giảng dạy và chuyên môn..."></textarea>
+                        <span asp-validation-for="Bio" class="form-error"></span>
+                    </div>
+
+                    <div style="display:flex;gap:.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                            </svg>
+                            Tạo hồ sơ
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Hướng dẫn quản trị</div>
+            </div>
+            <div class="card-body">
+                <ul class="guide-list">
+                    <li>
+                        <strong>Chuyên môn:</strong> Thông tin này sẽ hiển thị công khai trên danh sách giảng viên của trung tâm.
+                    </li>
+                    <li>
+                        <strong>Tiểu sử:</strong> Một tiểu sử chuyên nghiệp giúp tăng độ tin cậy đối với học viên và phụ huynh.
+                    </li>
+                    <li>
+                        <strong>Liên kết:</strong> Chỉ những tài khoản có vai trò "Teacher" mới xuất hiện trong danh sách lựa chọn.
+                    </li>
+                    <li>
+                        <strong>Định danh:</strong> Mỗi giảng viên nên có một mã định danh duy nhất để quản lý lịch dạy và thù lao.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="background: var(--warning-bg); border-color: #fcd34d;">
+            <div class="card-body">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <div style="font-size:1.5rem;">👨‍🏫</div>
+                    <div>
+                        <h4 style="margin:0 0 .25rem 0; font-size:.875rem; color:var(--warning-text);">Phân công giảng dạy</h4>
+                        <p style="margin:0; font-size:.8125rem; color:var(--warning-text); opacity:0.8; line-height:1.4;">
+                            Sau khi tạo hồ sơ, bạn có thể phân công giảng viên này quản lý các "Lớp học" hoặc "Khóa học" tương ứng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

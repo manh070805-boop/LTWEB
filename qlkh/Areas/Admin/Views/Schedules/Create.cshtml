@@ -1,0 +1,130 @@
+@model qlkh.Areas.Admin.ViewModels.ScheduleFormViewModel
+
+@{
+    ViewData["Title"] = "Thêm lịch học";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Thêm lịch học mới</h1>
+        <p>Xếp thời khóa biểu cho lớp học</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="edit-grid animate-in">
+    <div class="edit-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Thiết lập thời khóa biểu</div>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="All" class="validation-summary"></div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="ClassId" class="form-label">Lớp học</label>
+                            <select asp-for="ClassId" class="form-select" asp-items="ViewBag.ClassId">
+                                <option value="">-- Chọn lớp học --</option>
+                            </select>
+                            <span asp-validation-for="ClassId" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="DayOfWeek" class="form-label">Ngày trong tuần</label>
+                            <select asp-for="DayOfWeek" class="form-select">
+                                <option value="">-- Chọn thứ --</option>
+                                <option value="1">Thứ Hai</option>
+                                <option value="2">Thứ Ba</option>
+                                <option value="3">Thứ Tư</option>
+                                <option value="4">Thứ Năm</option>
+                                <option value="5">Thứ Sáu</option>
+                                <option value="6">Thứ Bảy</option>
+                                <option value="0">Chủ Nhật</option>
+                            </select>
+                            <span asp-validation-for="DayOfWeek" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label asp-for="StartTime" class="form-label">Giờ bắt đầu</label>
+                            <input asp-for="StartTime" type="time" class="form-control" />
+                            <span asp-validation-for="StartTime" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EndTime" class="form-label">Giờ kết thúc</label>
+                            <input asp-for="EndTime" type="time" class="form-control" />
+                            <span asp-validation-for="EndTime" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="RoomName" class="form-label">Phòng học</label>
+                            <input asp-for="RoomName" class="form-control" placeholder="Tên phòng" />
+                            <span asp-validation-for="RoomName" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;gap:.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                            </svg>
+                            Tạo lịch học
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Quy tắc xếp lịch</div>
+            </div>
+            <div class="card-body">
+                <ul class="guide-list">
+                    <li>
+                        <strong>Xung đột:</strong> Hệ thống sẽ kiểm tra xem phòng học hoặc giảng viên có bị trùng lịch tại thời điểm này không.
+                    </li>
+                    <li>
+                        <strong>Thời gian:</strong> Một buổi học tiêu chuẩn thường kéo dài từ 1.5 đến 2.5 giờ.
+                    </li>
+                    <li>
+                        <strong>Phòng học:</strong> Đảm bảo phòng học có đủ trang thiết bị (máy chiếu, bảng, PC) cho nội dung bài giảng.
+                    </li>
+                    <li>
+                        <strong>Thứ tự:</strong> Lịch học sẽ lặp lại hàng tuần dựa trên "Ngày trong tuần" đã chọn.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="background: var(--warning-bg); border-color: #fcd34d;">
+            <div class="card-body">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <div style="font-size:1.5rem;">🕒</div>
+                    <div>
+                        <h4 style="margin:0 0 .25rem 0; font-size:.875rem; color:var(--warning-text);">Kiểm tra trùng lặp</h4>
+                        <p style="margin:0; font-size:.8125rem; color:var(--warning-text); opacity:0.8; line-height:1.4;">
+                            Nếu lịch học bị trùng, hệ thống sẽ hiển thị cảnh báo. Hãy điều chỉnh giờ hoặc phòng học cho phù hợp.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
