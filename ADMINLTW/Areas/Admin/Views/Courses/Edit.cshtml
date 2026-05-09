@@ -1,0 +1,207 @@
+@model TrungTamLapTrinh.Web.Areas.Admin.ViewModels.CourseFormViewModel
+
+@{
+    ViewData["Title"] = "Sửa khóa học";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Cập nhật khóa học</h1>
+        <p>Chỉnh sửa thông tin chương trình đào tạo</p>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Quay lại
+    </a>
+</div>
+
+<div class="edit-grid">
+    <div class="edit-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Thông tin cơ bản</div>
+                <span class="badge badge-neutral">Mã khóa học: @Model.CourseId</span>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="CourseId" />
+                    <div asp-validation-summary="All" class="validation-summary"></div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="CourseName" class="form-label">Tên khóa học</label>
+                            <input asp-for="CourseName" class="form-control" placeholder="Nhập tên khóa học..." />
+                            <span asp-validation-for="CourseName" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LevelId" class="form-label">Trình độ đào tạo</label>
+                            <select asp-for="LevelId" class="form-select" asp-items="ViewBag.LevelId">
+                                <option value="">-- Chọn trình độ --</option>
+                            </select>
+                            <span asp-validation-for="LevelId" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label asp-for="Price" class="form-label">Học phí niêm yết</label>
+                            <div style="position:relative;">
+                                <input asp-for="Price" type="number" class="form-control" style="padding-right:3.5rem;" />
+                                <span style="position:absolute;right:.875rem;top:50%;transform:translateY(-50%);color:var(--text-400);font-size:.8125rem;pointer-events:none;">VNĐ</span>
+                            </div>
+                            <span asp-validation-for="Price" class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DurationMonths" class="form-label">Thời lượng (Dự kiến)</label>
+                            <div style="position:relative;">
+                                <input asp-for="DurationMonths" type="number" class="form-control" style="padding-right:4rem;" />
+                                <span style="position:absolute;right:.875rem;top:50%;transform:translateY(-50%);color:var(--text-400);font-size:.8125rem;pointer-events:none;">Tháng</span>
+                            </div>
+                            <span asp-validation-for="DurationMonths" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ImageUrl" class="form-label">Ảnh đại diện (URL)</label>
+                        <input asp-for="ImageUrl" class="form-control" placeholder="Link ảnh từ Cloudinary hoặc CDN..." />
+                        <span asp-validation-for="ImageUrl" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="form-label">Mô tả ngắn gọn</label>
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Tóm tắt về mục tiêu và nội dung khóa học..."></textarea>
+                        <span asp-validation-for="Description" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Roadmap" class="form-label">Lộ trình học tập chi tiết</label>
+                        <textarea asp-for="Roadmap" class="form-control" rows="6" placeholder="Các giai đoạn, module và kiến thức sẽ đạt được..."></textarea>
+                        <span asp-validation-for="Roadmap" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input asp-for="IsActive" class="form-check-input" />
+                            <span class="form-check-label">Kích hoạt & Hiển thị trên website</span>
+                        </label>
+                    </div>
+
+                    <div style="display:flex;gap:.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                            </svg>
+                            Lưu thay đổi
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Xem trước ảnh</div>
+            </div>
+            <div class="card-body" style="text-align:center;">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl" alt="Preview" style="max-width:100%; border-radius:8px; border:1px solid var(--border); box-shadow:var(--shadow-sm);" onerror="this.src='https://placehold.co/600x400?text=No+Image'" />
+                }
+                else
+                {
+                    <div style="padding:3rem 1rem; border:2px dashed var(--border); border-radius:8px; color:var(--text-400); font-size:.875rem;">
+                        Chưa có ảnh khóa học
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Lưu ý biên tập</div>
+            </div>
+            <div class="card-body">
+                <ul class="guide-list">
+                    <li>
+                        <strong>Tên khóa học:</strong> Nên đặt tên ngắn gọn, chứa từ khóa chính để tối ưu SEO.
+                    </li>
+                    <li>
+                        <strong>Lộ trình:</strong> Hãy chia nhỏ các giai đoạn để học viên dễ hình dung quá trình tiến bộ.
+                    </li>
+                    <li>
+                        <strong>Trạng thái:</strong> Khóa học không kích hoạt sẽ không thể tạo lớp mới và không hiển thị ngoài trang chủ.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-4" style="background: var(--primary-50); border-color: var(--primary-100);">
+            <div class="card-body">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <div style="font-size:1.5rem;">💡</div>
+                    <div>
+                        <h4 style="margin:0 0 .25rem 0; font-size:.875rem; color:var(--primary-700);">Mẹo nhỏ</h4>
+                        <p style="margin:0; font-size:.8125rem; color:var(--primary-600); line-height:1.4;">
+                            Bạn có thể xem các lớp học đang mở của khóa học này tại trang <a asp-action="Details" asp-route-id="@Model.CourseId" style="color:var(--primary-700); font-weight:600;">Chi tiết khóa học</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .edit-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    .guide-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .guide-list li {
+        font-size: .875rem;
+        color: var(--text-600);
+        line-height: 1.5;
+        position: relative;
+        padding-left: 1.25rem;
+    }
+
+    .guide-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    .guide-list li strong {
+        color: var(--text-900);
+        display: block;
+        margin-bottom: .125rem;
+    }
+
+    @@media (max-width: 1024px) {
+        .edit-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

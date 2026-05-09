@@ -1,0 +1,285 @@
+@model TrungTamLapTrinh.Web.Models.Student
+
+@{
+    ViewData["Title"] = "Chi tiết học viên";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Hồ sơ học viên</h1>
+        <p>@Model.Account?.FullName • Mã số: <span class="td-mono">#@Model.StudentId</span></p>
+    </div>
+    <div style="display:flex;gap:.625rem;">
+        <a asp-action="Edit" asp-route-id="@Model.StudentId" class="btn btn-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Chỉnh sửa
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Quay lại
+        </a>
+    </div>
+</div>
+
+<div class="details-grid">
+    <!-- Left Column: Primary Content -->
+    <div class="details-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Thông tin cá nhân</div>
+            </div>
+            <div class="card-body">
+                <div class="info-grid-modern">
+                    <div class="info-item-modern">
+                        <label>Họ và tên</label>
+                        <div class="value">@Model.Account?.FullName</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Email</label>
+                        <div class="value">@Model.Account?.Email</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Số điện thoại</label>
+                        <div class="value">@Model.Phone</div>
+                    </div>
+                    <div class="info-item-modern">
+                        <label>Ngày sinh</label>
+                        <div class="value">@(Model.Birthday.HasValue ? Model.Birthday.Value.ToString("dd/MM/yyyy") : "—")</div>
+                    </div>
+                    <div class="info-item-modern" style="grid-column: span 2;">
+                        <label>Địa chỉ</label>
+                        <div class="value">@Model.Address</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Lịch sử đăng ký học</div>
+                <span class="badge badge-neutral">@Model.Enrollments.Count khóa học</span>
+            </div>
+            <div class="card-body" style="padding:0;">
+                <div class="table-wrapper" style="border:none;box-shadow:none;border-radius:0;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Khóa học / Lớp</th>
+                                <th>Ngày đăng ký</th>
+                                <th>Trạng thái</th>
+                                <th>Thanh toán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var en in Model.Enrollments)
+                            {
+                                <tr>
+                                    <td>
+                                        <div style="font-weight:600;color:var(--text-900);">@en.Class?.Course?.CourseName</div>
+                                        <div style="font-size:.75rem;color:var(--text-500);">Lớp: @en.Class?.ClassName</div>
+                                    </td>
+                                    <td class="text-muted text-sm">@en.CreatedAt.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <span class="badge badge-neutral">Đã đăng ký</span>
+                                    </td>
+                                    <td>
+                                        @{
+                                            var totalPaid = en.Payments.Sum(p => p.Amount);
+                                            var coursePrice = en.Class?.Course?.Price ?? 0;
+                                        }
+                                        @if (totalPaid >= coursePrice && coursePrice > 0)
+                                        {
+                                            <span class="badge badge-success">Đã hoàn tất</span>
+                                        }
+                                        else if (totalPaid > 0)
+                                        {
+                                            <span class="badge badge-warning">Còn thiếu</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-danger">Chưa thanh toán</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            @if (!Model.Enrollments.Any())
+                            {
+                                <tr>
+                                    <td colspan="4" style="text-align:center;padding:2rem;color:var(--text-400);">Học viên này chưa đăng ký khóa học nào.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column: Sidebar -->
+    <div class="details-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Trạng thái tài khoản</div>
+            </div>
+            <div class="card-body">
+                <div class="account-status-card">
+                    <div class="status-indicator @(Model.Account?.IsActive == true ? "active" : "inactive")"></div>
+                    <div class="status-info">
+                        <strong>@(Model.Account?.IsActive == true ? "Hoạt động" : "Bị khóa")</strong>
+                        <span>Username: @Model.Account?.Username</span>
+                    </div>
+                </div>
+                <div style="margin-top:1rem; display:flex; flex-direction:column; gap:.5rem;">
+                    <a asp-controller="Accounts" asp-action="Details" asp-route-id="@Model.AccountId" class="btn btn-outline" style="justify-content:center; text-decoration:none;">
+                        Xem cài đặt tài khoản
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Thống kê nhanh</div>
+            </div>
+            <div class="card-body">
+                <div class="quick-stats-list">
+                    <div class="quick-stat-item">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-info">
+                            <label>Khóa học đã tham gia</label>
+                            <div class="stat-value">@Model.Enrollments.Count</div>
+                        </div>
+                    </div>
+                    <div class="quick-stat-item">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <label>Tổng học phí đã nộp</label>
+                            <div class="stat-value">@Model.Enrollments.SelectMany(e => e.Payments).Sum(p => p.Amount).ToString("N0") VNĐ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .info-grid-modern {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .info-item-modern label {
+        display: block;
+        font-size: .6875rem;
+        font-weight: 600;
+        color: var(--text-400);
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        margin-bottom: .375rem;
+    }
+
+    .info-item-modern .value {
+        font-size: .9375rem;
+        color: var(--text-900);
+        font-weight: 500;
+    }
+
+    /* Account Status Card */
+    .account-status-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--bg);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+    }
+
+    .status-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+    .status-indicator.active { background: var(--success); box-shadow: 0 0 0 4px var(--success-100); }
+    .status-indicator.inactive { background: var(--danger); box-shadow: 0 0 0 4px var(--danger-100); }
+
+    .status-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .status-info strong {
+        font-size: .875rem;
+        color: var(--text-900);
+    }
+
+    .status-info span {
+        font-size: .75rem;
+        color: var(--text-500);
+    }
+
+    /* Quick Stats */
+    .quick-stats-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .quick-stat-item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        border-radius: 8px;
+    }
+
+    .stat-info label {
+        display: block;
+        font-size: .75rem;
+        color: var(--text-500);
+    }
+
+    .stat-value {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-900);
+    }
+
+    .btn-outline {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-700);
+        font-size: .8125rem;
+        font-weight: 600;
+    }
+
+    .btn-outline:hover {
+        background: var(--bg);
+    }
+
+    @@media (max-width: 1024px) {
+        .details-grid { grid-template-columns: 1fr; }
+        .info-grid-modern { grid-template-columns: 1fr; }
+    }
+</style>

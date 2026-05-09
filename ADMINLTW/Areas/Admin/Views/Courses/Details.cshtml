@@ -1,0 +1,252 @@
+@model TrungTamLapTrinh.Web.Models.Course
+
+@{
+    ViewData["Title"] = "Chi tiết khóa học";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Chương trình đào tạo</h1>
+        <p>@Model.CourseName • Cấp độ: <span class="badge badge-neutral">@Model.Level?.LevelName</span></p>
+    </div>
+    <div style="display:flex;gap:.625rem;">
+        <a asp-action="Edit" asp-route-id="@Model.CourseId" class="btn btn-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Chỉnh sửa
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Quay lại
+        </a>
+    </div>
+</div>
+
+<div class="details-grid">
+    <div class="details-main">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Mô tả khóa học</div>
+            </div>
+            <div class="card-body">
+                <div class="course-description">
+                    @if (!string.IsNullOrEmpty(Model.Description))
+                    {
+                        @Html.Raw(Model.Description.Replace("\n", "<br/>"))
+                    }
+                    else
+                    {
+                        <span class="text-muted">Chưa có mô tả cho khóa học này.</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.Roadmap))
+        {
+            <div class="card mt-4">
+                <div class="card-header">
+                    <div class="card-title">Lộ trình học tập</div>
+                </div>
+                <div class="card-body">
+                    <div class="roadmap-content">
+                        @Html.Raw(Model.Roadmap.Replace("\n", "<br/>"))
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Các lớp đang mở</div>
+                <span class="badge badge-neutral">@Model.CenterClasses.Count lớp</span>
+            </div>
+            <div class="card-body" style="padding:0;">
+                <div class="table-wrapper" style="border:none;box-shadow:none;border-radius:0;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tên lớp</th>
+                                <th>Ngày khai giảng</th>
+                                <th>Lịch học</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var cls in Model.CenterClasses)
+                            {
+                                <tr>
+                                    <td><strong>@cls.ClassName</strong></td>
+                                    <td>@(cls.StartDate?.ToString("dd/MM/yyyy") ?? "—")</td>
+                                    <td>@cls.Schedules.Count buổi / tuần</td>
+                                    <td>
+                                        <a asp-controller="Classes" asp-action="Details" asp-route-id="@cls.ClassId" class="btn-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            @if (!Model.CenterClasses.Any())
+                            {
+                                <tr>
+                                    <td colspan="4" style="text-align:center;padding:2rem;color:var(--text-400);">Hiện tại không có lớp học nào đang mở cho khóa học này.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-sidebar">
+        <div class="card pricing-card-modern">
+            <div class="card-body">
+                <div class="price-tag">
+                    <span class="currency">VNĐ</span>
+                    <span class="amount">@Model.Price.ToString("N0")</span>
+                </div>
+                <div class="status-pill @(Model.IsActive ? "active" : "inactive")">
+                    @(Model.IsActive ? "Đang kinh doanh" : "Tạm ngưng")
+                </div>
+                <hr style="border:none; border-top:1px solid var(--border); margin:1.5rem 0;" />
+                <div class="course-meta-list">
+                    <div class="meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <div class="meta-info">
+                            <label>Thời lượng</label>
+                            <strong>@Model.DurationMonths tháng</strong>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <div class="meta-info">
+                            <label>Cấp độ</label>
+                            <strong>@Model.Level?.LevelName</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <div class="card-title">Hình ảnh đại diện</div>
+            </div>
+            <div class="card-body" style="padding:1rem;">
+                <div class="course-preview-img">
+                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                    {
+                        <img src="@Model.ImageUrl" alt="@Model.CourseName" />
+                    }
+                    else
+                    {
+                        <div class="no-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .course-description, .roadmap-content {
+        font-size: .9375rem;
+        line-height: 1.8;
+        color: var(--text-700);
+    }
+
+    /* Pricing Card */
+    .pricing-card-modern {
+        background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+        color: white;
+        border: none;
+    }
+
+    .pricing-card-modern .price-tag {
+        display: flex;
+        align-items: baseline;
+        gap: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    .pricing-card-modern .currency { font-size: 1rem; font-weight: 500; opacity: .8; }
+    .pricing-card-modern .amount { font-size: 2.25rem; font-weight: 800; }
+
+    .status-pill {
+        display: inline-block;
+        padding: .25rem .75rem;
+        border-radius: 20px;
+        font-size: .75rem;
+        font-weight: 600;
+        background: rgba(255,255,255,0.15);
+    }
+    .status-pill.active { color: #86efac; }
+    .status-pill.inactive { color: #fca5a5; }
+
+    .course-meta-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .meta-item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .meta-item svg { opacity: .7; }
+
+    .meta-info label {
+        display: block;
+        font-size: .75rem;
+        opacity: .7;
+        margin-bottom: 2px;
+    }
+
+    .meta-info strong {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    /* Course Preview Image */
+    .course-preview-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--bg);
+        border: 1px solid var(--border);
+    }
+
+    .course-preview-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .no-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-300);
+    }
+
+    @@media (max-width: 1024px) {
+        .details-grid { grid-template-columns: 1fr; }
+    }
+</style>

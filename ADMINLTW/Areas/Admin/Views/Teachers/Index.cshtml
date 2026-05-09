@@ -1,0 +1,66 @@
+@model IEnumerable<TrungTamLapTrinh.Web.Models.Teacher>
+
+@{
+    ViewData["Title"] = "Quản lý giảng viên";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Danh sách giảng viên</h1>
+        <p>Quản lý hồ sơ giảng viên</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        Thêm giảng viên
+    </a>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><polyline points="20 6 9 17 4 12"/></svg>
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="table-wrapper">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tài khoản</th>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Điện thoại</th>
+                <th>Chuyên môn</th>
+                <th style="width:180px;">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="td-mono">@item.TeacherId</td>
+                    <td style="font-weight:500;color:var(--text-900);">@item.Account?.Username</td>
+                    <td>@item.Account?.FullName</td>
+                    <td class="text-muted">@item.Account?.Email</td>
+                    <td class="text-muted">@item.Phone</td>
+                    <td><span class="badge badge-info">@item.Specialization</span></td>
+                    <td>
+                        <div style="display:flex;gap:.375rem;">
+                            <a asp-action="Details" asp-route-id="@item.TeacherId" class="btn btn-info btn-sm">Chi tiết</a>
+                            <a asp-action="Edit" asp-route-id="@item.TeacherId" class="btn btn-warning btn-sm">Sửa</a>
+                            <a asp-action="Delete" asp-route-id="@item.TeacherId" class="btn btn-danger btn-sm">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any())
+            {
+                <tr><td colspan="7" style="text-align:center;padding:3rem;color:var(--text-400);">Chưa có giảng viên nào</td></tr>
+            }
+        </tbody>
+    </table>
+</div>

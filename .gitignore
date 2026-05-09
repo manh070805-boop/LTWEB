@@ -1,21 +1,33 @@
-# Git ignore for AdminLTWEB
-.agents/
+# --- CUSTOM PROJECT ISOLATION ---
+# Ignore the temporary/duplicate folder
+....hj/
+
+# --- .NET CORE / ASP.NET CORE ---
+[Bb]in/
+[Oo]bj/
+build_obj/
+tempbuild/
+.buildcheck/
+scratch/
+
+# --- IDEs ---
+.vs/
+.vscode/
+*.swp
+*.bak
+*.user
+*.suo
+
+# --- LOGS & TEMP ---
+*.log
+logs/
+temp/
+
+# --- OS SPECIFIC ---
 .DS_Store
 Thumbs.db
-
-# Exclude git subdirectories in skills
-skills/**/.git/
-
-# PHP related
-vendor/
-composer.lock
-.env
-
-# SQL related
-*.bak
-*.log
-
-# Windows specific
 Desktop.ini
-[Dd]ebug/
-[Rr]elease/
+
+# --- BUILD TOOLS ---
+node_modules/
+.npm/

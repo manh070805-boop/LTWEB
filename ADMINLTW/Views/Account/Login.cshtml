@@ -1,0 +1,137 @@
+@model TrungTamLapTrinh.Web.ViewModels.LoginViewModel
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập — Trung Tâm Lập Trình</title>
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafaf9;
+            padding: 1.5rem;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .625rem;
+            margin-bottom: 2rem;
+        }
+
+        .login-logo-icon {
+            width: 36px; height: 36px;
+            background: #1c1917;
+            border-radius: .5rem;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .login-logo-text {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1c1917;
+            letter-spacing: -.01em;
+        }
+
+        .login-card {
+            background: #fff;
+            border: 1px solid #e7e5e4;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.08);
+            padding: 2rem;
+        }
+
+        .login-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1c1917;
+            margin-bottom: .375rem;
+        }
+
+        .login-card-subtitle {
+            font-size: .8125rem;
+            color: #78716c;
+            margin-bottom: 1.75rem;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: .75rem;
+            color: #a8a29e;
+        }
+    </style>
+</head>
+<body class="grain-texture">
+
+<div class="login-wrapper">
+
+    <!-- Logo -->
+    <div class="login-logo">
+        <div class="login-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+            </svg>
+        </div>
+        <span class="login-logo-text">Trung Tâm Lập Trình</span>
+    </div>
+
+    <!-- Card -->
+    <div class="login-card">
+        <div class="login-card-title">Chào mừng trở lại</div>
+        <div class="login-card-subtitle">Đăng nhập vào cổng quản trị</div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger" style="margin-bottom:1.25rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                @ViewBag.Error
+            </div>
+        }
+
+        <form asp-action="Login" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label class="form-label" asp-for="Username">Tên đăng nhập</label>
+                <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập" autocomplete="username" />
+                <span asp-validation-for="Username" class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" asp-for="Password">Mật khẩu</label>
+                <input asp-for="Password" class="form-control" type="password" placeholder="••••••••" autocomplete="current-password" />
+                <span asp-validation-for="Password" class="form-error"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full" style="justify-content:center;margin-top:.25rem;">
+                Đăng nhập
+            </button>
+        </form>
+    </div>
+
+    <div class="login-footer">© 2025 Trung Tâm Lập Trình. All rights reserved.</div>
+</div>
+
+</body>
+</html>

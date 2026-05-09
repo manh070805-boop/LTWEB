@@ -1,0 +1,67 @@
+@model IEnumerable<TrungTamLapTrinh.Web.Models.Student>
+
+@{
+    ViewData["Title"] = "Quản lý học viên";
+}
+
+<div class="page-header">
+    <div class="page-header-left">
+        <h1>Danh sách học viên</h1>
+        <p>Quản lý hồ sơ học viên trong hệ thống</p>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><polyline points="20 6 9 17 4 12"/></svg>
+        @TempData["SuccessMessage"]
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="table-wrapper">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tài khoản</th>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Điện thoại</th>
+                <th>Ngày sinh</th>
+                <th style="width:180px;">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="td-mono">@item.StudentId</td>
+                    <td style="font-weight:500;color:var(--text-900);">@item.Account?.Username</td>
+                    <td>@item.Account?.FullName</td>
+                    <td class="text-muted">@item.Account?.Email</td>
+                    <td class="text-muted">@item.Phone</td>
+                    <td class="text-muted text-sm">@(item.Birthday.HasValue ? item.Birthday.Value.ToString("dd/MM/yyyy") : "—")</td>
+                    <td>
+                        <div style="display:flex;gap:.375rem;">
+                            <a asp-action="Details" asp-route-id="@item.StudentId" class="btn btn-info btn-sm">Chi tiết</a>
+                            <a asp-action="Edit" asp-route-id="@item.StudentId" class="btn btn-warning btn-sm">Sửa</a>
+                            <a asp-action="Delete" asp-route-id="@item.StudentId" class="btn btn-danger btn-sm">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any())
+            {
+                <tr><td colspan="7" style="text-align:center;padding:3rem;color:var(--text-400);">Chưa có học viên nào</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
