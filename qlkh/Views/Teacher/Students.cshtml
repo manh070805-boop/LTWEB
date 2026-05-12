@@ -5,28 +5,35 @@
     ViewData["Title"] = "Lớp phụ trách";
 }
 
-<div class="teacher-page">
-
-    <div class="teacher-title-row pro-title">
-        <span class="teacher-kicker">MY STUDENTS</span>
+<div class="page-header">
+    <div class="page-header-left">
         <h1>Lớp phụ trách</h1>
-        <p>Theo dõi học viên trong các lớp bạn đang giảng dạy.</p>
+        <p>Theo dõi và quản lý học viên trong các lớp bạn đang giảng dạy.</p>
     </div>
+</div>
 
-    <div class="lesson-list-card">
-        <h4>Danh sách học viên</h4>
-
+<div class="card animate-in">
+    <div class="card-header">
+        <div>
+            <div class="card-title">Danh sách học viên</div>
+            <div class="card-subtitle">Tổng hợp học viên đã ghi danh vào lớp học của bạn</div>
+        </div>
+    </div>
+    <div class="card-body-flush">
         @if (Model == null || !Model.Any())
         {
-            <div class="teacher-empty mt-3">
-                <h5>Chưa có học viên nào</h5>
-                <p>Admin chưa gán học viên vào lớp của bạn.</p>
+            <div style="padding: 3rem 2rem; text-align: center; color: var(--text-500);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 1rem; opacity: .5; display: block;">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                </svg>
+                <h5 class="font-semibold text-sm" style="font-size: 1rem; color: var(--text-900); margin-bottom: .25rem;">Chưa có học viên nào</h5>
+                <p class="text-xs text-muted" style="font-size: .85rem;">Ban quản trị chưa phân bổ hoặc chưa có học viên nào đăng ký vào lớp của bạn.</p>
             </div>
         }
         else
         {
-            <div class="table-responsive">
-                <table class="table align-middle teacher-table">
+            <div class="table-wrapper" style="border: none; border-radius: 0; box-shadow: none;">
+                <table class="data-table">
                     <thead>
                         <tr>
                             <th>Học viên</th>
@@ -41,18 +48,28 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
+                            var statusName = item.EnrollmentStatus?.StatusName ?? "Đang xử lý";
+                            var badgeClass = "badge-neutral";
+                            if (statusName.Contains("Duyệt") || statusName.Contains("Thành công") || statusName.Contains("Hoạt động") || statusName.Contains("Đã đóng")) {
+                                badgeClass = "badge-success";
+                            } else if (statusName.Contains("Chờ")) {
+                                badgeClass = "badge-warning";
+                            } else if (statusName.Contains("Hủy")) {
+                                badgeClass = "badge-danger";
+                            }
+                            
                             <tr>
                                 <td>
-                                    <strong>@item.Student?.Account?.FullName</strong>
-                                    <div class="text-muted">@item.StudentId</div>
+                                    <div style="font-weight: 600; color: var(--text-900);">@item.Student?.Account?.FullName</div>
+                                    <div class="text-xs text-muted">ID: @item.StudentId</div>
                                 </td>
-                                <td>@item.Student?.Account?.Email</td>
-                                <td>@item.ClassId</td>
+                                <td class="td-mono">@item.Student?.Account?.Email</td>
+                                <td>
+                                    <span class="badge badge-neutral">@item.ClassId</span>
+                                </td>
                                 <td>@item.Course?.CourseName</td>
                                 <td>
-                                    <span class="class-status">
-                                        @item.EnrollmentStatus?.StatusName
-                                    </span>
+                                    <span class="badge @badgeClass">@statusName</span>
                                 </td>
                                 <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
                             </tr>
@@ -62,5 +79,4 @@
             </div>
         }
     </div>
-
 </div>

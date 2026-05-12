@@ -5,71 +5,85 @@
     ViewData["Title"] = "Cài đặt hồ sơ";
 }
 
-<div class="teacher-page">
-
-    <div class="teacher-title-row pro-title">
-        <span class="teacher-kicker">SETTINGS</span>
+<div class="page-header">
+    <div class="page-header-left">
         <h1>Cài đặt hồ sơ</h1>
-        <p>Cập nhật thông tin cá nhân và chuyên môn giảng viên.</p>
+        <p>Cập nhật thông tin cá nhân và chuyên môn giảng viên của bạn.</p>
     </div>
+</div>
 
-    <div class="profile-grid">
-        <div class="profile-card">
-            <div class="profile-avatar">GV</div>
-            <h3>@Model.FullName</h3>
-            <p>@Model.Specialization</p>
-            <span>@Model.TeacherId</span>
-        </div>
-
-        <div class="lesson-form-card">
-            <h4>Thông tin giảng viên</h4>
-
-            <form asp-controller="Teacher" asp-action="UpdateProfile" method="post">
-                <input type="hidden" asp-for="TeacherId" />
-
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label">Họ tên</label>
-                        <input asp-for="FullName" class="form-control" />
-                        <span asp-validation-for="FullName" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Username</label>
-                        <input asp-for="Username" class="form-control" />
-                        <span asp-validation-for="Username" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Email</label>
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Số điện thoại</label>
-                        <input asp-for="Phone" class="form-control" />
-                        <span asp-validation-for="Phone" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-12">
-                        <label class="form-label">Chuyên môn</label>
-                        <input asp-for="Specialization" class="form-control" />
-                    </div>
-
-                    <div class="col-md-12">
-                        <label class="form-label">Giới thiệu</label>
-                        <textarea asp-for="Bio" class="form-control" rows="5"></textarea>
-                    </div>
+<div class="details-grid animate-in" style="grid-template-columns: 1.6fr 1fr;">
+    <!-- Left Column: Form -->
+    <div class="details-main">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Thông tin giảng viên</div>
+                    <div class="card-subtitle">Chỉnh sửa thông tin liên hệ và chuyên môn</div>
                 </div>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Teacher" asp-action="UpdateProfile" method="post">
+                    <input type="hidden" asp-for="TeacherId" />
 
-                <button type="submit" class="btn btn-primary rounded-pill px-4 mt-4">
-                    Lưu thay đổi
-                </button>
-            </form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                        <div class="form-group">
+                            <label class="form-label">Họ tên</label>
+                            <input asp-for="FullName" class="form-control" placeholder="Nhập họ tên đầy đủ" />
+                            <span asp-validation-for="FullName" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Tên tài khoản (Username)</label>
+                            <input asp-for="Username" class="form-control" placeholder="Nhập username" />
+                            <span asp-validation-for="Username" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" type="email" placeholder="example@email.com" />
+                            <span asp-validation-for="Email" class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Số điện thoại</label>
+                            <input asp-for="Phone" class="form-control" placeholder="Nhập số điện thoại" />
+                            <span asp-validation-for="Phone" class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label class="form-label">Chuyên môn</label>
+                        <input asp-for="Specialization" class="form-control" placeholder="Ví dụ: Lập trình C#, Web ASP.NET MVC" />
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label class="form-label">Giới thiệu bản thân (Bio)</label>
+                        <textarea asp-for="Bio" class="form-control" rows="5" placeholder="Hãy giới thiệu ngắn gọn về kinh nghiệm và phong cách giảng dạy của bạn..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-4" style="padding: 0.5rem 1.5rem; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                        </svg>
+                        &nbsp;Lưu thay đổi
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
+    <!-- Right Column: Avatar Card -->
+    <div class="details-sidebar">
+        <div class="card" style="text-align: center; padding: 2.5rem 1.5rem; border-top: 4px solid var(--text-900);">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--primary); color: var(--primary-fg); font-size: 1.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; box-shadow: var(--shadow-md);">
+                @(string.IsNullOrEmpty(Model.FullName) ? "GV" : Model.FullName.Trim().Split(' ').Last())
+            </div>
+            <h3 class="font-bold" style="font-size: 1.2rem; color: var(--text-900); margin-bottom: .375rem;">@Model.FullName</h3>
+            <p class="text-muted" style="font-size: .85rem; margin-bottom: .75rem; font-weight: 500;">@Model.Specialization</p>
+            <span class="badge badge-neutral" style="font-size: .75rem; padding: .25rem .75rem;">Mã GV: @Model.TeacherId</span>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

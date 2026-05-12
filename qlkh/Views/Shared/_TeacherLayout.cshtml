@@ -8,9 +8,7 @@
 
     <title>@ViewData["Title"] - Cổng giảng viên</title>
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/teacher/teacher-layout.css" />
-    <link rel="stylesheet" href="~/css/teacher/teacher.css" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
     <style>
         .app-toast-container {
             position: fixed;
@@ -72,57 +70,204 @@
             line-height: 1;
             padding: 2px;
         }
+        .w-full { width: 100%; }
+        .d-block { display: block; }
     </style>
 </head>
 
-<body>
-    <div class="teacher-shell">
+<body class="grain-texture">
+    <div id="top-loading-bar"></div>
 
-        <aside class="teacher-sidebar">
-            <div class="teacher-brand">
-                <div class="teacher-logo">T</div>
-                <div>
-                    <strong>TMMDEV</strong>
-                    <span>Teacher Portal</span>
+    <div class="admin-shell">
+
+        <!-- Mobile overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <!-- Brand -->
+            <div class="sidebar-brand">
+                <div class="sidebar-brand-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                    </svg>
                 </div>
+                <span class="sidebar-brand-name">TTLT Teacher</span>
             </div>
 
-            <nav class="teacher-menu">
-                <a asp-controller="Teacher" asp-action="Home"> Bảng điều khiển</a>
-                <a asp-controller="Teacher" asp-action="MyClasses"> Quản lý khóa học</a>
-                <a asp-controller="Teacher" asp-action="Students"> Lớp phụ trách</a>
-                <a asp-controller="Teacher" asp-action="Profile"> Cài đặt hồ sơ</a>
+            <!-- User info -->
+            <div class="sidebar-user">
+                <div class="sidebar-user-name">@Context.Session.GetString("FullName")</div>
+                <div class="sidebar-user-role">Giảng viên</div>
+            </div>
+
+            @{
+                var act = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+                string NavCls(string name) {
+                    if (name.Equals("MyClasses", StringComparison.OrdinalIgnoreCase)) {
+                        return (act.Equals("MyClasses", StringComparison.OrdinalIgnoreCase) || act.Equals("Lessons", StringComparison.OrdinalIgnoreCase))
+                            ? "sidebar-nav-item active"
+                            : "sidebar-nav-item";
+                    }
+                    return act.Equals(name, StringComparison.OrdinalIgnoreCase)
+                        ? "sidebar-nav-item active"
+                        : "sidebar-nav-item";
+                }
+            }
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+                <div class="sidebar-nav-section">Tổng quan</div>
+
+                <a class="@NavCls("Home")" asp-controller="Teacher" asp-action="Home">
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    Bảng điều khiển
+                </a>
+
+                <div class="sidebar-nav-section">Quản lý đào tạo</div>
+
+                <a class="@NavCls("MyClasses")" asp-controller="Teacher" asp-action="MyClasses">
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                    Quản lý khóa học
+                </a>
+
+                <a class="@NavCls("Students")" asp-controller="Teacher" asp-action="Students">
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    Lớp phụ trách
+                </a>
+
+                <div class="sidebar-nav-section">Cá nhân</div>
+
+                <a class="@NavCls("Profile")" asp-controller="Teacher" asp-action="Profile">
+                    <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Cài đặt hồ sơ
+                </a>
             </nav>
 
-            <form asp-controller="Account" asp-action="LogoutPost" method="post" class="teacher-logout-form">
-                <button type="submit" class="teacher-logout">
-                    Đăng xuất
-                </button>
-            </form>
+            <!-- Footer / Logout -->
+            <div class="sidebar-footer">
+                <form asp-controller="Account" asp-action="LogoutPost" method="post" id="logoutForm">
+                    <button type="submit" class="btn btn-danger w-full" style="justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        &nbsp;Đăng xuất
+                    </button>
+                </form>
+            </div>
         </aside>
 
-        <main class="teacher-main">
-            <header class="teacher-topbar">
-                <div>
-                    <strong>Cổng giảng viên</strong>
-                    <span>Quản lý lớp học, bài giảng và video học tập</span>
+        <!-- Main -->
+        <div class="admin-main">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+                <div class="flex items-center gap-3">
+                    <button class="burger-btn" onclick="openSidebar()" aria-label="Mở menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                    <span class="admin-topbar-title">@ViewData["Title"]</span>
                 </div>
 
-                <div class="teacher-user">
-                    Xin chào, @Context.Session.GetString("FullName")
+                <div class="admin-topbar-right">
+                    <span class="admin-topbar-greeting">
+                        Xin chào, <strong>@Context.Session.GetString("FullName")</strong>
+                    </span>
+                    <form asp-controller="Account" asp-action="LogoutPost" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                <polyline points="16 17 21 12 16 7"/>
+                                <line x1="21" y1="12" x2="9" y2="12"/>
+                            </svg>
+                            Đăng xuất
+                        </button>
+                    </form>
                 </div>
             </header>
 
-            <section class="teacher-content">
+            <!-- Content -->
+            <main class="admin-content">
                 @RenderBody()
-            </section>
-        </main>
+            </main>
 
+        </div>
     </div>
 
     <div id="appToastContainer" class="app-toast-container" aria-live="polite" aria-atomic="true"></div>
 
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>lucide.createIcons();</script>
+
+    <!-- Bootstrap Bundle with Popper (specifically needed for collapses/modals/etc) -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function openSidebar() {
+            document.getElementById('adminSidebar').classList.add('open');
+            document.getElementById('sidebarOverlay').classList.add('open');
+        }
+        function closeSidebar() {
+            document.getElementById('adminSidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('open');
+        }
+
+        // Active nav highlighting and loading bar
+        document.addEventListener('DOMContentLoaded', function () {
+            const bar = document.getElementById('top-loading-bar');
+            
+            // Finish loading
+            setTimeout(() => {
+                if (bar) bar.classList.add('finished');
+            }, 100);
+
+            // Intercept links for loading bar
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript') && this.target !== '_blank') {
+                        if (bar) {
+                            bar.classList.remove('finished');
+                            bar.classList.add('loading');
+                        }
+                    }
+                });
+            });
+            
+            lucide.createIcons();
+        });
+    </script>
+
     <script>
         window.showToast = function (message, type = "success", duration = 3500) {
             if (!message) return;
@@ -162,7 +307,8 @@
             if (errorMessage) showToast(errorMessage, "error");
         });
     </script>
-    @RenderSection("Scripts", required: false)
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

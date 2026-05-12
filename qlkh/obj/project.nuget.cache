@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TH4EEpUNPSM=",
+  "dgSpecHash": "fTAZ6FKAmn8=",
   "success": true,
-  "projectFilePath": "D:\\DoAnWeb - v2 - v2\\qlkh\\qlkh.csproj",
+  "projectFilePath": "D:\\DoAnWeb - v2 - v3\\qlkh\\qlkh.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GF63\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\GF63\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
@@ -134,9 +134,9 @@
       "code": "NU1901",
       "level": "Warning",
       "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "projectPath": "D:\\DoAnWeb - v2 - v2\\qlkh\\qlkh.csproj",
+      "projectPath": "D:\\DoAnWeb - v2 - v3\\qlkh\\qlkh.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\DoAnWeb - v2 - v2\\qlkh\\qlkh.csproj",
+      "filePath": "D:\\DoAnWeb - v2 - v3\\qlkh\\qlkh.csproj",
       "libraryId": "NuGet.Packaging",
       "targetGraphs": [
         "net10.0"
@@ -146,9 +146,9 @@
       "code": "NU1901",
       "level": "Warning",
       "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "projectPath": "D:\\DoAnWeb - v2 - v2\\qlkh\\qlkh.csproj",
+      "projectPath": "D:\\DoAnWeb - v2 - v3\\qlkh\\qlkh.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\DoAnWeb - v2 - v2\\qlkh\\qlkh.csproj",
+      "filePath": "D:\\DoAnWeb - v2 - v3\\qlkh\\qlkh.csproj",
       "libraryId": "NuGet.Protocol",
       "targetGraphs": [
         "net10.0"

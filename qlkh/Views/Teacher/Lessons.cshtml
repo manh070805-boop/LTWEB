@@ -9,131 +9,156 @@
     var courseName = ViewBag.CourseName?.ToString() ?? "";
 }
 
-<div class="teacher-page">
-
-    <div class="teacher-title-row pro-title">
-        <a asp-controller="Teacher"
-           asp-action="MyClasses"
-           class="btn btn-light rounded-pill mb-3">
-            ← Quay lại
+<div class="page-header">
+    <div class="page-header-left">
+        <a asp-controller="Teacher" asp-action="MyClasses" class="btn btn-secondary btn-sm mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Quay lại
         </a>
-
-        <span class="teacher-kicker">LESSON STUDIO</span>
         <h1>Quản lý bài học</h1>
-        <p>@courseName - @className</p>
+        <p>@courseName — <strong>@className</strong></p>
     </div>
+</div>
 
-    <div class="lesson-studio-grid">
-        <div class="lesson-form-card lesson-pro-form">
-            <h4>🎥 Thêm video bài học</h4>
-            <p class="text-muted">Dán link YouTube, đặt thứ tự và tên bài học.</p>
-
-            <form asp-controller="Teacher" asp-action="CreateLesson" method="post">
-                <input type="hidden" name="classId" value="@classId" />
-
-                <label class="form-label">Thứ tự bài</label>
-                <input type="number" name="orderIndex" class="form-control mb-3" min="1" required />
-
-                <label class="form-label">Tên bài học</label>
-                <input type="text" name="title" class="form-control mb-3" required />
-
-                <label class="form-label">Link video YouTube</label>
-                <input type="text" name="videoUrl" class="form-control mb-4" />
-
-                <button type="submit" class="btn btn-primary w-100 rounded-pill">
-                    + Thêm bài học
-                </button>
-            </form>
-        </div>
-
-        <div class="lesson-list-card">
-            <div class="panel-title">
+<div class="details-grid animate-in" style="grid-template-columns: 1.6fr 1fr;">
+    <!-- Left column: Danh sách bài học (larger) -->
+    <div class="details-main">
+        <div class="card">
+            <div class="card-header">
                 <div>
-                    <h3>Danh sách bài học</h3>
-                    <p>@Model.Count bài học trong lớp này</p>
+                    <div class="card-title">Danh sách bài học</div>
+                    <div class="card-subtitle">@Model.Count bài học trong lớp này</div>
                 </div>
             </div>
-
-            @if (Model == null || !Model.Any())
-            {
-                <div class="teacher-empty mt-3">
-                    <h5>Chưa có bài học nào</h5>
-                    <p>Hãy thêm video bài giảng đầu tiên cho lớp này.</p>
-                </div>
-            }
-            else
-            {
-                <div class="lesson-pro-list">
-                    @foreach (var lesson in Model)
-                    {
-                        <div class="lesson-pro-item">
-                            <div class="lesson-number">@lesson.OrderIndex</div>
-
-                            <div class="lesson-main">
-                                <strong>@lesson.Title</strong>
-
-                                @if (!string.IsNullOrWhiteSpace(lesson.VideoUrl))
-                                {
-                                    <a href="@lesson.VideoUrl" target="_blank">Xem video</a>
-                                }
-                                else
-                                {
-                                    <span>Chưa có video</span>
-                                }
-                            </div>
-
-                            <div class="lesson-actions">
-                                <button type="button"
-                                        class="btn btn-sm btn-outline-primary"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#edit-@lesson.LessonId">
-                                    Sửa
-                                </button>
-
-                                <form asp-controller="Teacher"
-                                      asp-action="DeleteLesson"
-                                      method="post"
-                                      onsubmit="return confirm('Bạn có chắc muốn xóa bài học này không?');">
-                                    <input type="hidden" name="lessonId" value="@lesson.LessonId" />
-                                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                                        Xóa
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="collapse edit-box" id="edit-@lesson.LessonId">
-                            <form asp-controller="Teacher" asp-action="UpdateLesson" method="post">
-                                <input type="hidden" name="lessonId" value="@lesson.LessonId" />
-
-                                <div class="row g-3">
-                                    <div class="col-md-2">
-                                        <label class="form-label">Thứ tự</label>
-                                        <input type="number" name="orderIndex" value="@lesson.OrderIndex" class="form-control" min="1" required />
+            <div class="card-body">
+                @if (Model == null || !Model.Any())
+                {
+                    <div style="padding: 2.5rem; text-align: center; color: var(--text-500);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 1rem; opacity: .5; display: block;">
+                            <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                        </svg>
+                        <h5 class="font-semibold text-sm" style="font-size: 1rem; color: var(--text-900); margin-bottom: .25rem;">Chưa có bài học nào</h5>
+                        <p class="text-xs text-muted" style="font-size: .85rem;">Hãy thêm video bài giảng đầu tiên cho lớp này bằng biểu mẫu bên cạnh.</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="flex flex-col gap-3">
+                        @foreach (var lesson in Model)
+                        {
+                            <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; background: var(--surface); transition: all var(--transition);">
+                                <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: .75rem;">
+                                    <div class="flex items-center gap-3">
+                                        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--primary); color: var(--primary-fg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .95rem; box-shadow: var(--shadow-sm);">
+                                            @lesson.OrderIndex
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 600; color: var(--text-900); font-size: .95rem;">@lesson.Title</div>
+                                            @if (!string.IsNullOrWhiteSpace(lesson.VideoUrl))
+                                            {
+                                                <a href="@lesson.VideoUrl" target="_blank" style="font-size: .8125rem; color: #2563eb; display: inline-flex; align-items: center; gap: .25rem; margin-top: .25rem; font-weight: 500;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                                                    </svg>
+                                                    Xem video bài học
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-xs text-muted" style="display: block; margin-top: .25rem;">Chưa có link video</span>
+                                            }
+                                        </div>
                                     </div>
-
-                                    <div class="col-md-4">
-                                        <label class="form-label">Tên bài học</label>
-                                        <input type="text" name="title" value="@lesson.Title" class="form-control" required />
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="form-label">Link video</label>
-                                        <input type="text" name="videoUrl" value="@lesson.VideoUrl" class="form-control" />
-                                    </div>
-
-                                    <div class="col-md-2 d-flex align-items-end">
-                                        <button type="submit" class="btn btn-success w-100 rounded-pill">
-                                            Lưu
+                                    <div class="flex items-center gap-2">
+                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" data-bs-target="#edit-@lesson.LessonId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                                            </svg>
+                                            Sửa
                                         </button>
+                                        <form asp-controller="Teacher" asp-action="DeleteLesson" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa bài học này không?');" style="display:inline;">
+                                            <input type="hidden" name="lessonId" value="@lesson.LessonId" />
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                                </svg>
+                                                Xóa
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    }
-                </div>
-            }
+                                
+                                <div class="collapse mt-4" id="edit-@lesson.LessonId" style="border-top: 1px solid var(--border); padding-top: 1.25rem;">
+                                    <form asp-controller="Teacher" asp-action="UpdateLesson" method="post">
+                                        <input type="hidden" name="lessonId" value="@lesson.LessonId" />
+                                        
+                                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; align-items: end;">
+                                            <div>
+                                                <label class="form-label">Thứ tự</label>
+                                                <input type="number" name="orderIndex" value="@lesson.OrderIndex" class="form-control" min="1" required />
+                                            </div>
+                                            <div style="grid-column: span 2;">
+                                                <label class="form-label">Tên bài học</label>
+                                                <input type="text" name="title" value="@lesson.Title" class="form-control" required />
+                                            </div>
+                                            <div style="grid-column: span 2;">
+                                                <label class="form-label">Link video</label>
+                                                <input type="text" name="videoUrl" value="@lesson.VideoUrl" class="form-control" />
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="btn btn-success w-full" style="justify-content: center;">
+                                                    Lưu lại
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
         </div>
     </div>
 
+    <!-- Right column: Biểu mẫu thêm bài học (smaller) -->
+    <div class="details-sidebar">
+        <div class="card" style="border-top: 4px solid var(--text-900);">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">🎥 Thêm bài học</div>
+                    <div class="card-subtitle">Nhập thông tin bài học mới</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Teacher" asp-action="CreateLesson" method="post">
+                    <input type="hidden" name="classId" value="@classId" />
+
+                    <div class="form-group">
+                        <label class="form-label">Thứ tự bài</label>
+                        <input type="number" name="orderIndex" class="form-control" min="1" placeholder="Ví dụ: 1" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tên bài học</label>
+                        <input type="text" name="title" class="form-control" placeholder="Ví dụ: Giới thiệu khóa học" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Link video YouTube</label>
+                        <input type="text" name="videoUrl" class="form-control" placeholder="https://youtube.com/watch?v=..." />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full mt-4" style="justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        &nbsp;Thêm bài học
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

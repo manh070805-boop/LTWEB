@@ -3,87 +3,147 @@
 @{
     Layout = "_TeacherLayout";
     ViewData["Title"] = "Bảng điều khiển";
-
-    decimal income = ViewBag.Income == null ? 0 : Convert.ToDecimal(ViewBag.Income);
 }
 
-<div class="teacher-page">
-
-    <div class="teacher-hero pro-hero">
-        <div>
-            <span class="teacher-kicker">TEACHER DASHBOARD</span>
-            <h1>Xin chào, @ViewBag.TeacherName 👋</h1>
-            <p>Quản lý lớp học, cập nhật video bài giảng và theo dõi học viên trong một nơi duy nhất.</p>
-        </div>
-        <div class="hero-orb">🎓</div>
-    </div>
-
-    <div class="teacher-stat-grid">
-        <div class="pro-stat-card blue">
-            <div class="stat-icon">📚</div>
-            <span>Lớp phụ trách</span>
-            <strong>@ViewBag.ClassCount</strong>
-        </div>
-
-        <div class="pro-stat-card violet">
-            <div class="stat-icon">🎬</div>
-            <span>Video bài học</span>
-            <strong>@ViewBag.LessonCount</strong>
-        </div>
-
-        <div class="pro-stat-card green">
-            <div class="stat-icon">👨‍🎓</div>
-            <span>Học viên</span>
-            <strong>@ViewBag.StudentCount</strong>
+<!-- Hero Banner -->
+<div class="hero-card">
+    <div class="hero-card-body">
+        <h2>Xin chào, @ViewBag.TeacherName 👋</h2>
+        <p>Chào mừng bạn quay lại cổng giảng viên TTLT. Quản lý lớp học, cập nhật video bài giảng và theo dõi học viên trong một nơi duy nhất.</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+            <a asp-controller="Teacher" asp-action="MyClasses" class="btn btn-secondary btn-sm">
+                Quản lý khóa học →
+            </a>
+            <a asp-controller="Teacher" asp-action="Students" class="btn btn-ghost btn-sm" style="color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.25);">
+                Lớp phụ trách →
+            </a>
         </div>
     </div>
+</div>
 
-    <div class="teacher-dashboard-grid">
-        <div class="teacher-panel">
-            <div class="panel-title">
+<!-- Stats Grid -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-card-label">Lớp phụ trách</div>
+        <div class="stat-card-value">@ViewBag.ClassCount</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Video bài học</div>
+        <div class="stat-card-value">@ViewBag.LessonCount</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                <line x1="7" y1="2" x2="7" y2="22"/>
+                <line x1="17" y1="2" x2="17" y2="22"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="2" y1="7" x2="7" y2="7"/>
+                <line x1="2" y1="17" x2="7" y2="17"/>
+                <line x1="17" y1="17" x2="22" y2="17"/>
+                <line x1="17" y1="7" x2="22" y2="7"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-label">Tổng học viên</div>
+        <div class="stat-card-value">@ViewBag.StudentCount</div>
+        <div class="stat-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<div class="details-grid animate-in" style="grid-template-columns: 1.6fr 1fr; margin-top: 1.5rem;">
+    <!-- Left Panel: Recent Classes -->
+    <div class="details-main">
+        <div class="card">
+            <div class="card-header">
                 <div>
-                    <h3>Lớp học gần đây</h3>
-                    <p>Các lớp bạn đang phụ trách</p>
+                    <div class="card-title">Lớp học gần đây</div>
+                    <div class="card-subtitle">Các lớp bạn đang phụ trách giảng dạy</div>
                 </div>
-
-                <a asp-controller="Teacher"
-                   asp-action="MyClasses"
-                   class="btn btn-primary rounded-pill">
+                <a asp-controller="Teacher" asp-action="MyClasses" class="btn btn-secondary btn-sm">
                     Xem tất cả
                 </a>
             </div>
-
-            @if (Model == null || !Model.Any())
-            {
-                <div class="empty-mini">Chưa có lớp nào.</div>
-            }
-            else
-            {
-                <div class="mini-class-list">
-                    @foreach (var item in Model)
-                    {
-                        <a asp-controller="Teacher"
-                           asp-action="Lessons"
-                           asp-route-classId="@item.ClassId"
-                           class="mini-class-item">
-                            <div class="mini-class-icon">📘</div>
-                            <div>
-                                <strong>@item.ClassName</strong>
-                                <span>@item.Course?.CourseName</span>
-                            </div>
-                            <em>@item.Status?.StatusName</em>
-                        </a>
-                    }
-                </div>
-            }
-        </div>
-
-        <div class="teacher-panel teacher-tips">
-            <h3>Gợi ý hôm nay</h3>
-            <div class="tip-card">✨ Cập nhật video bài học thường xuyên giúp học viên học tốt hơn.</div>
-            <div class="tip-card">📌 Nên đặt thứ tự bài học rõ ràng: 1, 2, 3...</div>
-            <div class="tip-card">🎯 Kiểm tra lớp phụ trách để theo dõi học viên.</div>
+            <div class="card-body">
+                @if (Model == null || !Model.Any())
+                {
+                    <div style="padding: 2rem; text-align: center; color: var(--text-500);">Chưa có lớp nào được phân công.</div>
+                }
+                else
+                {
+                    <div class="flex flex-col gap-3">
+                        @foreach (var item in Model)
+                        {
+                            var statusName = item.Status?.StatusName ?? "Đang diễn ra";
+                            var statusBadge = "badge-success";
+                            if (statusName.Contains("Kết thúc") || statusName.Contains("Đóng")) {
+                                statusBadge = "badge-danger";
+                            } else if (statusName.Contains("Chưa") || statusName.Contains("Sắp")) {
+                                statusBadge = "badge-warning";
+                            }
+                            
+                            <a asp-controller="Teacher" asp-action="Lessons" asp-route-classId="@item.ClassId" 
+                               style="display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; background: var(--surface); text-decoration: none; transition: all var(--transition); border-left: 4px solid var(--text-900);"
+                               onmouseover="this.style.transform='translateY(-1px)'; this.style.borderColor='var(--text-400)'; this.style.boxShadow='var(--shadow-sm)';"
+                               onmouseout="this.style.transform='none'; this.style.borderColor='var(--border)'; this.style.boxShadow='none';">
+                                <div style="display: flex; align-items: center; gap: .75rem;">
+                                    <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--border-light); display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                                        📘
+                                    </div>
+                                    <div>
+                                        <div style="font-weight: 600; color: var(--text-900); font-size: .9rem;">@item.ClassName</div>
+                                        <div class="text-xs text-muted">@item.Course?.CourseName</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: .75rem;">
+                                    <span class="badge @statusBadge">@statusName</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-muted"><polyline points="9 18 15 12 9 6"/></svg>
+                                </div>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
         </div>
     </div>
 
+    <!-- Right Panel: Guide and Tips -->
+    <div class="details-sidebar">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Gợi ý hôm nay</div>
+                    <div class="card-subtitle">Lời khuyên giảng dạy chuyên nghiệp</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="guide-list">
+                    <li>
+                        <strong>Cập nhật bài giảng</strong>
+                        Đăng tải video bài giảng đầy đủ sau mỗi buổi học để học viên có thể ôn tập thuận tiện.
+                    </li>
+                    <li>
+                        <strong>Thứ tự bài giảng rõ ràng</strong>
+                        Nên đặt tên và thứ tự bài học (ví dụ: Bài 1, Bài 2...) giúp lộ trình học trực quan và dễ theo dõi hơn.
+                    </li>
+                    <li>
+                        <strong>Theo dõi lớp phụ trách</strong>
+                        Kiểm tra danh sách học viên thường xuyên để nắm được quân số và tiến độ học tập của từng người.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
